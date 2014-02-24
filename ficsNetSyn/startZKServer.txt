@@ -1,0 +1,4 @@
+/home/test/server1/zookeeper-3.4.5/bin/zkServer.sh start-foreground
+/home/test/server2/zookeeper-3.4.5/bin/zkServer.sh start-foreground
+/home/test/server3/zookeeper-3.4.5/bin/zkServer.sh start-foreground
+

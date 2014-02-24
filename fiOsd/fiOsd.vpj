@@ -1,0 +1,286 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="automakefile"
+	BuildMakeFile="Makefile.linux">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdlibfiOsd.so"
+		CompilerConfigName="Default Compiler"
+		Defines="">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -g -fPIC -o "%bd%n%oe" %i %f'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -g -shared -fPIC -o "%o" %objs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="f0xBuild"
+				MenuCaption="&amp;f0xBuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="D:\tools">
+				<Exec CmdLine="plink.exe -pw 123 -m buildOsd.txt root@172.16.133.231"/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o" "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="SharedLibrary"/>
+		</List>
+		<Libs PreObjects="0">
+		</Libs>
+		<Includes>
+			<Include Dir="/usr/local/include/zookeeper/"/>
+			<Include Dir="../include_com"/>
+			<Include Dir="../mds/journal"/>
+		</Includes>
+		<PostBuildCommands>
+			<Exec CmdLine="cp Debug/libfiOsd.so ../../bin/"/>
+			<Exec CmdLine="cp Debug/libfiOsd.so /usr/local/lib/libs"/>
+		</PostBuildCommands>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdlibfiOsd.so"
+		CompilerConfigName="Default Compiler"
+		Defines="">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -fPIC -o "%bd%n%oe" %i %f'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -shared -fPIC -o "%o" %objs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="f0xBuild"
+				MenuCaption="&amp;f0xBuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="D:\tools">
+				<Exec CmdLine="plink.exe -pw 123 -m buildOsd.txt root@172.16.133.231"/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o" "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="SharedLibrary"/>
+		</List>
+		<Libs PreObjects="0">
+		</Libs>
+		<Includes>
+			<Include Dir="/usr/local/include/zookeeper/"/>
+			<Include Dir="../include_com"/>
+			<Include Dir="../mds/journal"/>
+		</Includes>
+		<PostBuildCommands>
+			<Exec CmdLine="cp Debug/libfiOsd.so ../../bin/"/>
+			<Exec CmdLine="cp Debug/libfiOsd.so /usr/local/lib/libs"/>
+		</PostBuildCommands>
+	</Config>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm">
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters="">
+		</Folder>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="../FicsFormatterEx">
+			<Folder Name="Formmater">
+				<F N="../FicsFormatterEx/Formmater/FicsFmtNSInfo.cpp"/>
+				<F N="../FicsFormatterEx/Formmater/FicsFmtNSInfo.h"/>
+				<F N="../FicsFormatterEx/Formmater/IFicsFormatter.cpp"/>
+				<F N="../FicsFormatterEx/Formmater/IFicsFormatter.h"/>
+			</Folder>
+		</Folder>
+		<Folder Name="../public">
+			<F N="../public/netIpBook.cpp"/>
+			<F N="../public/netIpBook.h"/>
+			<F N="../public/osdBaseType.cpp"/>
+			<F N="../public/osdBaseType.h"/>
+			<F N="../public/osdTools.cpp"/>
+			<F N="../public/osdTools.h"/>
+		</Folder>
+		<F N="ficsLocIF.cpp"/>
+		<F N="ficsLocIF.h"/>
+		<F N="fiOsd.cpp"/>
+		<F N="fiOsd.h"/>
+		<F N="fiOsdIF.cpp"/>
+		<F N="fiOsdIF.h"/>
+		<F
+			N="Makefile.linux"
+			Type="Makefile"/>
+		<F N="objIo.cpp"/>
+		<F N="objIo.h"/>
+		<F N="osdCfg.cpp"/>
+		<F N="osdCfg.h"/>
+	</Files>
+</Project>

@@ -1,0 +1,273 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="automakefile"
+	BuildMakeFile="Makefile.linux">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdlibficsNetSyn.so"
+		CompilerConfigName="Latest Version"
+		Defines="">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -g -fPIC -o "%bd%n%oe" %i %f'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -g -shared -fPIC -o "%o" %objs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="f0xBuild"
+				MenuCaption="&amp;f0xBuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="D:\tools">
+				<Exec CmdLine="plink.exe -pw 123 -m buildNetSyn.txt root@172.16.133.231"/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o" "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="SharedLibrary"/>
+		</List>
+		<Includes>
+			<Include Dir="/usr/local/include/zookeeper/"/>
+			<Include Dir="../include_com"/>
+			<Include Dir="../mds/journal"/>
+		</Includes>
+		<Libs PreObjects="0">
+		</Libs>
+		<PostBuildCommands>
+			<Exec CmdLine="cp Debug/libficsNetSyn.so ../../bin"/>
+			<Exec CmdLine="cp Debug/libficsNetSyn.so /usr/local/lib/libs"/>
+		</PostBuildCommands>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdlibficsNetSyn.so"
+		CompilerConfigName="Latest Version"
+		Defines="">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -fPIC -o "%bd%n%oe" %i %f'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -shared -fPIC -o "%o" %objs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='make -f "Makefile.linux" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="f0xBuild"
+				MenuCaption="&amp;f0xBuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="D:\tools">
+				<Exec CmdLine="plink.exe -pw 123 -m buildNetSyn.txt root@172.16.133.231"/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o" "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="SharedLibrary"/>
+		</List>
+		<Includes>
+			<Include Dir="/usr/local/include/zookeeper/"/>
+			<Include Dir="../include_com"/>
+			<Include Dir="../mds/journal"/>
+		</Includes>
+		<Libs PreObjects="0">
+		</Libs>
+		<PostBuildCommands>
+			<Exec CmdLine="cp Debug/libficsNetSyn.so ../../bin"/>
+			<Exec CmdLine="cp Debug/libficsNetSyn.so /usr/local/lib/libs"/>
+		</PostBuildCommands>
+	</Config>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm"/>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if"/>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters="">
+		</Folder>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="zkadapter">
+			<F N="zkadapter/blockingqueue.h"/>
+			<F N="zkadapter/event.cc"/>
+			<F N="zkadapter/event.h"/>
+			<F N="zkadapter/log.cc"/>
+			<F N="zkadapter/log.h"/>
+			<F N="zkadapter/mutex.h"/>
+			<F N="zkadapter/thread.cc"/>
+			<F N="zkadapter/thread.h"/>
+			<F N="zkadapter/zkadapter.cc"/>
+			<F N="zkadapter/zkadapter.h"/>
+		</Folder>
+		<Folder Name="zkLock">
+			<F N="zkLock/zoo_lock.c"/>
+			<F N="zkLock/zoo_lock.h"/>
+		</Folder>
+		<F N="ficsNetSyn.cpp"/>
+		<F N="ficsNetSyn.h"/>
+	</Files>
+</Project>

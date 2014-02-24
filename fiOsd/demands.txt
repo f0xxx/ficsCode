@@ -1,0 +1,57 @@
+﻿1. safewrite
+2. cache
+3. allocid on assign node
+4. objinfo get objid
+5. support loc log scan
+6. notify up layer osd status
+7. objinfo提供赋值操作符，和objid一样放到共用的头文件夹中。这样我才能包含
+8. objid提供字符串初始化
+9. Alloc(ObjInfo &obj, char* pSuggestName = NULL);提供SuggestName分配objinfo
+
+
+ex:
+
+#include "fiOsdIF.h"
+
+metaIF g_mif;
+DataIF g_dif;
+JournalIF g_jif;
+
+===initJournal===:
+ObjID fileid;
+...
+fileid save in specalmeta;
+
+ObjInfo obj
+
+g_mif.AllocMetalObj(&obj);
+...
+obj save in meta;
+===end===
+
+===create===:
+ObjID fileid;
+...
+fileid save in meta;
+
+
+ObjInfo obj
+
+g_mif.AllocMetalObj(&obj);
+...
+obj save in meta;
+
+g_dif.AllocDataObj(&obj);
+...
+obj save in meta;
+===end===
+
+===readmeta&readJournal===:
+get fileid in meta;
+get objBuf in meta;
+
+g_jif.ReadJournal(ObjInfo(fileid,objBuf,objBufLen),buf,len,offset);
+g_mif.ReadMeta(ObjInfo(fileid,objBuf,objBufLen),buf,len,offset);
+===end===
+
+
