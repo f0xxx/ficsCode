@@ -1,4 +1,4 @@
-// item32.cpp : Defines the entry point for the console application.
+ï»¿// item32.cpp : Defines the entry point for the console application.
 //
 
 #include <algorithm>
@@ -9,24 +9,24 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	vector<int> v;   // ½¨Á¢Ò»¸övector<int> ÓÃ1-10Ìî³äËü
-	v.reserve(10);   // £¨µ÷ÓÃreserveµÄ½âÊÍÔÚÌõ¿î14£©
+	vector<int> v;   // å»ºç«‹ä¸€ä¸ªvector<int> ç”¨1-10å¡«å……å®ƒ
+	v.reserve(10);   // ï¼ˆè°ƒç”¨reserveçš„è§£é‡Šåœ¨æ¡æ¬¾14ï¼‰
 	for (int i = 1; i <= 10; ++i) 
 	{
 		v.push_back(i);
 	}
-	cout << v.size()<<endl;   // ´òÓ¡10
-	v[3] = v[5] = v[9] = 99;  // ÉèÖÃ3¸öÔªËØÎª99
+	cout << v.size()<<endl;   // æ‰“å°10
+	v[3] = v[5] = v[9] = 99;  // è®¾ç½®3ä¸ªå…ƒç´ ä¸º99
 
-	//remove(v.begin(), v.end(), 99); // É¾³ıËùÓĞµÈÓÚ99µÄÔªËØ
-	//cout << v.size()<<endl;   // ÈÔÈ»ÊÇ10£¡
+	//remove(v.begin(), v.end(), 99); // åˆ é™¤æ‰€æœ‰ç­‰äº99çš„å…ƒç´ 
+	//cout << v.size()<<endl;   // ä»ç„¶æ˜¯10ï¼
 
-	//vector<int>::iterator newEnd(remove(v.begin(), v.end(), 99));//·µ»ØÒª±»É¾³ıµÄÎ»ÖÃ
+	//vector<int>::iterator newEnd(remove(v.begin(), v.end(), 99));//è¿”å›è¦è¢«åˆ é™¤çš„ä½ç½®
 
-	v.erase(remove(v.begin(), v.end(), 99), v.end());  // ÕæµÄÉ¾³ıËùÓĞµÈÓÚ99µÄÔªËØ
-	cout << v.size()<<endl;      // ÏÖÔÚ·µ»Ø7
+	v.erase(remove(v.begin(), v.end(), 99), v.end());  // çœŸçš„åˆ é™¤æ‰€æœ‰ç­‰äº99çš„å…ƒç´ 
+	cout << v.size()<<endl;      // ç°åœ¨è¿”å›7
 
-	//listÖĞÓĞÖ±½Ó¹©µ÷ÓÃµÄremove³ÉÔ±º¯ÊıÊµÏÖÉÏÊö¹¦ÄÜ
+	//listä¸­æœ‰ç›´æ¥ä¾›è°ƒç”¨çš„removeæˆå‘˜å‡½æ•°å®ç°ä¸Šè¿°åŠŸèƒ½
 
 	return 0;
 }

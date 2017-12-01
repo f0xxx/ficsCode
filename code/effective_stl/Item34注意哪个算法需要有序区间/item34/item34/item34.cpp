@@ -1,10 +1,10 @@
-// item34.cpp : Defines the entry point for the console application.
+ï»¿// item34.cpp : Defines the entry point for the console application.
 //
 #include <algorithm>
 #include <vector>
 #include <functional>
 using namespace std;
-//ĞèÒª´ËÌõ¼şµÄËã·¨ÓĞ:(¿É²éÑ¯MSDN»ñÈ¡Ïà¹ØĞÅÏ¢)
+//éœ€è¦æ­¤æ¡ä»¶çš„ç®—æ³•æœ‰:(å¯æŸ¥è¯¢MSDNè·å–ç›¸å…³ä¿¡æ¯)
 //binary_search
 //lower_bound
 //upper_bound
@@ -27,13 +27,13 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	int data[]={21,3,45,3,5,6,4,545,61,522};
-	vector<int> v(data,data+sizeof(data)/sizeof(data[0]));     // ½¨Á¢Ò»¸övector°ÑÒ»Ğ©Êı¾İ·Å½øÈ¥
+	vector<int> v(data,data+sizeof(data)/sizeof(data[0]));     // å»ºç«‹ä¸€ä¸ªvectoræŠŠä¸€äº›æ•°æ®æ”¾è¿›å»
 
-	sort(v.begin(), v.end(), greater<int>());  // ½µĞòÅÅÁĞÊ¹ÓÃÕâ¸övector
+	sort(v.begin(), v.end(), greater<int>());  // é™åºæ’åˆ—ä½¿ç”¨è¿™ä¸ªvector
 
-	//bool a5Exists = binary_search(v.begin(), v.end(), 5);    // ÔÚÕâ¸övectorÖĞËÑË÷5¼ÙÉèËüÊÇÉıĞòÅÅÁĞ,±¨´íÒòÎªÄ¬ÈÏÅÅĞòÊÇ½µĞò
+	//bool a5Exists = binary_search(v.begin(), v.end(), 5);    // åœ¨è¿™ä¸ªvectorä¸­æœç´¢5å‡è®¾å®ƒæ˜¯å‡åºæ’åˆ—,æŠ¥é”™å› ä¸ºé»˜è®¤æ’åºæ˜¯é™åº
 
-	bool a5Exists1 = binary_search(v.begin(), v.end(), 5,greater<int>());       // ËÑË÷5°Ñgreater×÷Îª±È½Ïº¯Êı
+	bool a5Exists1 = binary_search(v.begin(), v.end(), 5,greater<int>());       // æœç´¢5æŠŠgreaterä½œä¸ºæ¯”è¾ƒå‡½æ•°
 
 	return 0;
 }

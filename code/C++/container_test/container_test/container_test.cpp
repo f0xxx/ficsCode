@@ -1,4 +1,4 @@
-// ±ê×¼¿âÍ·ÎÄ¼ş
+ï»¿// æ ‡å‡†åº“å¤´æ–‡ä»¶
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -7,12 +7,12 @@
 #include <map>
 #include <set>
 #include <stack>
-#include <fstream>	// ±ê×¼C++Ö®Ç°µÄiostream Í·ÎÄ¼ş
-#include <stddef.h>	// ±ê×¼C Í·ÎÄ¼ş
+#include <fstream>	// æ ‡å‡†C++ä¹‹å‰çš„iostream å¤´æ–‡ä»¶
+#include <stddef.h>	// æ ‡å‡†C å¤´æ–‡ä»¶
 #include <ctype.h>
 using namespace std;
 
-// typedefs Ê¹ÉùÃ÷¸ü¼òµ¥
+// typedefs ä½¿å£°æ˜æ›´ç®€å•
 typedef pair<short,short> location;
 typedef vector<location> loc;
 typedef vector<string> text;
@@ -20,17 +20,17 @@ typedef pair<text*,loc*> text_loc;
 
 /*from effective stl
 
-±ê×¼STLĞòÁĞÈİÆ÷£ºvector¡¢string¡¢dequeºÍlist¡£ 
-±ê×¼STL¹ØÁªÈİÆ÷£ºset¡¢multiset¡¢mapºÍmultimap¡£ 
-·Ç±ê×¼ĞòÁĞÈİÆ÷slistºÍrope¡£slistÊÇÒ»¸öµ¥ÏòÁ´±í£¬rope±¾ÖÊÉÏÊÇÒ»¸öÖØĞÍ×Ö·û´®¡£
-("rope"ÊÇÒ»¸öÖØĞÍ"string"¡£Ã÷°×ÁËÂğ£¿)Äã¿ÉÒÔÕÒµ½Ò»¸ö¹ØÓÚÕâĞ©·Ç±ê×¼(µ«³£¼ûµÄ)ÈİÆ÷µÄ¸ÅÀÀÔÚÌõ¿î50¡£ 
-·Ç±ê×¼¹ØÁªÈİÆ÷hash_set¡¢hash_multiset¡¢hash_mapºÍhash_multimap¡£
-ÎÒÔÚÌõ¿î25¼ìÑéÁËÕâĞ©¿ÉÒÔ¹ã·º»ñµÃµÄ»ùÓÚhash±íµÄÈİÆ÷ºÍ±ê×¼¹ØÁªÈİÆ÷µÄ²»Í¬µã¡£ 
-vector<char>¿ÉÒÔ×÷ÎªstringµÄÌæ´úÆ·¡£Ìõ¿î13ÃèÊöÁËÕâ¸öÌæ´úÆ·¿ÉÄÜ»áÓĞÒâÒåµÄÇé¿ö¡£ 
-vector×÷Îª±ê×¼¹ØÁªÈİÆ÷µÄÌæ´úÆ·¡£¾ÍÏñÌõ¿î23ËùËµµÄ£¬ÓĞÊ±ºòvector¿ÉÒÔÔÚÊ±¼äºÍ¿Õ¼äÉÏ¶¼±íÏÖµÃ±È±ê×¼¹ØÁªÈİÆ÷ºÃ¡£ 
-¼¸ÖÖ±ê×¼·ÇSTLÈİÆ÷£¬°üÀ¨Êı×é¡¢bitset¡¢valarray¡¢stack¡¢queueºÍpriority_queue¡£ÒòÎªËüÃÇÊÇ·ÇSTLÈİÆ÷£¬
-ËùÒÔÔÚ±¾ÊéÖĞ¹ØÓÚËüÃÇÎÒËµµÃºÜÉÙ£¬ËäÈ»Ìõ¿î16Ìáµ½ÁËÊı×é±ÈSTLÈİÆ÷¸üÓĞÓÅÊÆµÄÒ»ÖÖÇé¿ö£¬
-¶øÌõ¿î18½ÒÊ¾ÁËÎªÊ²Ã´bitset¿ÉÄÜ±Èvector<bool>ÒªºÃ¡£ÖµµÃ×¢ÒâµÄÊÇ£¬Êı×é¿ÉÒÔºÍSTLËã·¨ÅäºÏ£¬ÒòÎªÖ¸Õë¿ÉÒÔµ±×÷Êı×éµÄµü´úÆ÷Ê¹ÓÃ¡£ 
+æ ‡å‡†STLåºåˆ—å®¹å™¨ï¼švectorã€stringã€dequeå’Œlistã€‚ 
+æ ‡å‡†STLå…³è”å®¹å™¨ï¼šsetã€multisetã€mapå’Œmultimapã€‚ 
+éæ ‡å‡†åºåˆ—å®¹å™¨slistå’Œropeã€‚slistæ˜¯ä¸€ä¸ªå•å‘é“¾è¡¨ï¼Œropeæœ¬è´¨ä¸Šæ˜¯ä¸€ä¸ªé‡å‹å­—ç¬¦ä¸²ã€‚
+("rope"æ˜¯ä¸€ä¸ªé‡å‹"string"ã€‚æ˜ç™½äº†å—ï¼Ÿ)ä½ å¯ä»¥æ‰¾åˆ°ä¸€ä¸ªå…³äºè¿™äº›éæ ‡å‡†(ä½†å¸¸è§çš„)å®¹å™¨çš„æ¦‚è§ˆåœ¨æ¡æ¬¾50ã€‚ 
+éæ ‡å‡†å…³è”å®¹å™¨hash_setã€hash_multisetã€hash_mapå’Œhash_multimapã€‚
+æˆ‘åœ¨æ¡æ¬¾25æ£€éªŒäº†è¿™äº›å¯ä»¥å¹¿æ³›è·å¾—çš„åŸºäºhashè¡¨çš„å®¹å™¨å’Œæ ‡å‡†å…³è”å®¹å™¨çš„ä¸åŒç‚¹ã€‚ 
+vector<char>å¯ä»¥ä½œä¸ºstringçš„æ›¿ä»£å“ã€‚æ¡æ¬¾13æè¿°äº†è¿™ä¸ªæ›¿ä»£å“å¯èƒ½ä¼šæœ‰æ„ä¹‰çš„æƒ…å†µã€‚ 
+vectorä½œä¸ºæ ‡å‡†å…³è”å®¹å™¨çš„æ›¿ä»£å“ã€‚å°±åƒæ¡æ¬¾23æ‰€è¯´çš„ï¼Œæœ‰æ—¶å€™vectorå¯ä»¥åœ¨æ—¶é—´å’Œç©ºé—´ä¸Šéƒ½è¡¨ç°å¾—æ¯”æ ‡å‡†å…³è”å®¹å™¨å¥½ã€‚ 
+å‡ ç§æ ‡å‡†éSTLå®¹å™¨ï¼ŒåŒ…æ‹¬æ•°ç»„ã€bitsetã€valarrayã€stackã€queueå’Œpriority_queueã€‚å› ä¸ºå®ƒä»¬æ˜¯éSTLå®¹å™¨ï¼Œ
+æ‰€ä»¥åœ¨æœ¬ä¹¦ä¸­å…³äºå®ƒä»¬æˆ‘è¯´å¾—å¾ˆå°‘ï¼Œè™½ç„¶æ¡æ¬¾16æåˆ°äº†æ•°ç»„æ¯”STLå®¹å™¨æ›´æœ‰ä¼˜åŠ¿çš„ä¸€ç§æƒ…å†µï¼Œ
+è€Œæ¡æ¬¾18æ­ç¤ºäº†ä¸ºä»€ä¹ˆbitsetå¯èƒ½æ¯”vector<bool>è¦å¥½ã€‚å€¼å¾—æ³¨æ„çš„æ˜¯ï¼Œæ•°ç»„å¯ä»¥å’ŒSTLç®—æ³•é…åˆï¼Œå› ä¸ºæŒ‡é’ˆå¯ä»¥å½“ä½œæ•°ç»„çš„è¿­ä»£å™¨ä½¿ç”¨ã€‚ 
 */
 class TextQuery
 {
@@ -134,7 +134,7 @@ void TextQuery::suffix_text()
 		{ iter++; continue; }
 		if ( (*iter)[ (*iter).size()- 1 ] == 's' )
 			suffix_s( *iter );
-		// ÆäËûµÄºó×º´¦Àí·ÅÔÚÕâÀï
+		// å…¶ä»–çš„åç¼€å¤„ç†æ”¾åœ¨è¿™é‡Œ
 		iter++;
 	}
 }
@@ -162,7 +162,7 @@ void TextQuery::suffix_s( string &word )
 		word.erase( pos3+1, 2 );
 		return;
 	}
-	// È¥µôÎ²²¿µÄ 's'
+	// å»æ‰å°¾éƒ¨çš„ 's'
 	word.erase( pos3+2 );
 	// watch out for "'s"
 	if ( word[ pos3+1 ] == '\'' )
@@ -206,7 +206,7 @@ void TextQuery::build_word_map()
 		istream_iterator< string > input_set( infile ), eos;
 		copy( input_set, eos, inserter( exclusion_set, exclusion_set.begin() ));
 	}
-	// ±éÀúµ¥´Ê, ÊäÈë¼ü/Öµ¶Ô
+	// éå†å•è¯, è¾“å…¥é”®/å€¼å¯¹
 	vector<string> *text_words = text_locations ->first;
 	vector<location> *text_locs = text_locations ->second;
 	register int elem_cnt = text_words ->size();
@@ -215,7 +215,7 @@ void TextQuery::build_word_map()
 		string textword = ( *text_words )[ ix ];
 		if ( textword.size() < 3 ||	exclusion_set.count( textword ))
 			continue;
-		if ( ! word_map->count((*text_words)[ix] ))	// Ã»ÓĞ, Ìí¼Ó:
+		if ( ! word_map->count((*text_words)[ix] ))	// æ²¡æœ‰, æ·»åŠ :
 		{ 
 			loc *ploc = new vector<location>;
 			ploc->push_back( (*text_locs)[ix] );
@@ -240,7 +240,7 @@ void TextQuery::query_text()
 		string::size_type pos = 0;
 		while (( pos = query_text.find_first_of( caps, pos ))!= string::npos )
 			query_text[ pos ] = tolower( query_text[pos] );
-		if ( !word_map->count( query_text ))	// Èç¹û¶Ômap Ë÷Òı, ÊäÈëquery_text, ÈçÎŞËµÃ÷Ã»ÓĞÒªÕÒµÄ´Ê
+		if ( !word_map->count( query_text ))	// å¦‚æœå¯¹map ç´¢å¼•, è¾“å…¥query_text, å¦‚æ— è¯´æ˜æ²¡æœ‰è¦æ‰¾çš„è¯
  		{
 			cout << "\nSorry. There are no entries for "<< query_text << ".\n\n";
 			continue;
@@ -263,7 +263,7 @@ void TextQuery::query_text()
 		{
 			int line = *it;
 			cout << "\t( line "
-				<< line + 1 << " ) "	// ²»ÒªÓÃ´Ó 0 ¿ªÊ¼ÓĞÎÄ±¾ĞĞ°ÑÓÃ»§ÅªÃÔºıÁË
+				<< line + 1 << " ) "	// ä¸è¦ç”¨ä» 0 å¼€å§‹æœ‰æ–‡æœ¬è¡ŒæŠŠç”¨æˆ·å¼„è¿·ç³Šäº†
 				<< (*lines_of_text)[line] << endl;
 		}
 		cout << endl;
@@ -336,7 +336,7 @@ void TextQuery::display_text_locations()
 //{
 //	map< string, string > trans_map;
 //	typedef map< string, string >::value_type valType;
-//	// µÚÒ»¸öÈ¨ÒËÖ®¼Æ: ½«×ª»»¶Ô¹Ì¶¨Ğ´ÔÚ´úÂëÖĞ
+//	// ç¬¬ä¸€ä¸ªæƒå®œä¹‹è®¡: å°†è½¬æ¢å¯¹å›ºå®šå†™åœ¨ä»£ç ä¸­
 //	trans_map.insert( valType( "gratz", "grateful" ));
 //	trans_map.insert( valType( "'em", "them" ));
 //	trans_map.insert( valType( "cuz", "because" ));
@@ -345,26 +345,26 @@ void TextQuery::display_text_locations()
 //	trans_map.insert( valType( "tanx", "thanks" ));
 //	trans_map.insert( valType( "wuz", "was" ));
 //	trans_map.insert( valType( "pos", "suppose" ));
-//	// ok: ÏÔÊ¾trans_map
+//	// ok: æ˜¾ç¤ºtrans_map
 //	map< string,string >::iterator it;
 //	cout << "Here is our transformation map: \n\n";
 //	for ( it = trans_map.begin();it != trans_map.end(); ++it )
 //		cout << "key: " << (*it).first << "\t" << "value: " << (*it).second << "\n";
 //	cout << "\n\n";
-//	// µÚ¶ş¸öÈ¨ÒËÖ®¼Æ: ¹Ì¶¨Ğ´ÈëÎÄ×Ö.
+//	// ç¬¬äºŒä¸ªæƒå®œä¹‹è®¡: å›ºå®šå†™å…¥æ–‡å­—.
 //	string textarray[14]={ "nah", "I", "sez", "tanx", "cuz", "I", "wuz", "pos", "to", "not", "cuz", "I", "wuz", "gratz" };
 //	vector< string > text( textarray, textarray+14 );
 //	vector< string >::iterator iter;
-//	// ok: ÏÔÊ¾ text
+//	// ok: æ˜¾ç¤º text
 //	cout << "Here is our original string vector: \n\n";
 //	int cnt = 1;
 //	for ( iter = text.begin(); iter != text.end(); ++iter, ++cnt )
 //		cout << *iter << ( cnt % 8 ? " " : "\n" );
 //	cout << "\n\n\n";
-//	// °üº¬Í³¼ÆĞÅÏ¢µÄmap¡ª¡ª¶¯Ì¬Éú³É
+//	// åŒ…å«ç»Ÿè®¡ä¿¡æ¯çš„mapâ€”â€”åŠ¨æ€ç”Ÿæˆ
 //	map< string,int > stats;
 //	typedef map< string,int >::value_type statsValType;
-//	// ok: ÕæÕıµÄ map ¹¤×÷¡ª¡ª³ÌĞòµÄºËĞÄ
+//	// ok: çœŸæ­£çš„ map å·¥ä½œâ€”â€”ç¨‹åºçš„æ ¸å¿ƒ
 //	for ( iter = text.begin(); iter != text.end(); ++iter )
 //	{
 //		if (( it = trans_map.find( *iter )) != trans_map.end() )
@@ -375,13 +375,13 @@ void TextQuery::display_text_locations()
 //			*iter = (*it).second;
 //		}
 //	}
-//		// ok: ÏÔÊ¾±»×ª»»ºóµÄ vector
+//		// ok: æ˜¾ç¤ºè¢«è½¬æ¢åçš„ vector
 //		cout << "Here is our transformed string vector: \n\n";
 //		cnt = 1;
 //		for ( iter = text.begin(); iter != text.end(); ++iter, ++cnt )
 //			cout << *iter << ( cnt % 8 ? " " : "\n" );
 //		cout << "\n\n\n";
-//		// ok: ÏÖÔÚ¶ÔÍ³¼Æ map ½øĞĞµü´ú
+//		// ok: ç°åœ¨å¯¹ç»Ÿè®¡ map è¿›è¡Œè¿­ä»£
 //		cout << "Finally, here are our statistics:\n\n";
 //		map<string,int,less<string>>::iterator siter;
 //		for ( siter = stats.begin(); siter != stats.end(); ++siter )
@@ -399,7 +399,7 @@ int main()
 	int ia[ia_size ] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	int ix = 0;
 	stack< int > intStack;
-	for ( ; ix < ia_size; ++ix )	// Ìî³ä stack
+	for ( ; ix < ia_size; ++ix )	// å¡«å…… stack
 		intStack.push( ia[ ix ] );
 	int error_cnt = 0;
 	if ( intStack.size() != ia_size )
@@ -412,7 +412,7 @@ int main()
 	int value;
 	while ( intStack.empty() == false )
 	{
-		value = intStack.top();	// ¶ÁÈ¡Õ»¶¥ÔªËØ
+		value = intStack.top();	// è¯»å–æ ˆé¡¶å…ƒç´ 
 		if ( value != --ix )
 		{
 			cerr << "oops! expected " << ix
@@ -420,11 +420,11 @@ int main()
 				<< endl;
 			++error_cnt;
 		}
-		intStack.pop();	// µ¯³öÕ»¶¥ÔªËØ
+		intStack.pop();	// å¼¹å‡ºæ ˆé¡¶å…ƒç´ 
 	}
 	cout << "Our program ran with " << error_cnt << " errors!" << endl;
 
 	return 0;
 }
 
-//queue and priority_queue ÂÔ...
+//queue and priority_queue ç•¥...

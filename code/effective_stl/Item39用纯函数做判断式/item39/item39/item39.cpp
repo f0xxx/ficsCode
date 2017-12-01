@@ -1,13 +1,13 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 #include <vector>
 #include <functional>
 #include <iostream>
 using namespace std;
 
-class BadPredicate:    // ¹ØÓÚÕâ¸ö»ùÀàµÄ¸ü¶àĞÅÏ¢
-	public unary_function<int, bool> { // Çë²Î¼ûÌõ¿î40
+class BadPredicate:    // å…³äºè¿™ä¸ªåŸºç±»çš„æ›´å¤šä¿¡æ¯
+	public unary_function<int, bool> { // è¯·å‚è§æ¡æ¬¾40
 public:
-	BadPredicate(): timesCalled(0) {}  // °ÑtimesCalled³õÊ¼»¯Îª0
+	BadPredicate(): timesCalled(0) {}  // æŠŠtimesCalledåˆå§‹åŒ–ä¸º0
 	bool operator()(const int&) /*const*/
 	{
 		return ++timesCalled == 3;
@@ -20,13 +20,13 @@ private:
 int main(int argc, char* argv[])
 {
 	int data[]={1,2,3,4,5,6,7,8,9};
-	vector<int> vw(data,data+9);    // ½¨Á¢vector£¬È»ºó
+	vector<int> vw(data,data+9);    // å»ºç«‹vectorï¼Œç„¶å
 
-	vw.erase(remove_if(vw.begin(),  // È¥µôµÚÈı¸öintÖµ;
-			 vw.end(),  // ¹ØÓÚeraseºÍremove_ifµÄ¹ØÏµ
-			 BadPredicate()), // Çë²Î¼ûÌõ¿î32
+	vw.erase(remove_if(vw.begin(),  // å»æ‰ç¬¬ä¸‰ä¸ªintå€¼;
+			 vw.end(),  // å…³äºeraseå’Œremove_ifçš„å…³ç³»
+			 BadPredicate()), // è¯·å‚è§æ¡æ¬¾32
 			 vw.end());
 	for(vector<int>::iterator i=vw.begin();i<vw.end();i++)
-		cout<<*i<<endl;//²»Ö»ÊÇ3£¬6Ò²±»È¥µôÁË£¬Ô­Òò¾ÍÔÚÓÚº¯Êı¶ÔÏóµÄÖµ´«µİ£¨copy£©,ËùÒÔÓ¦¸Ã¶Ô×öÅĞ¶Ïº¯ÊıÓÃ´¿º¯Êı
+		cout<<*i<<endl;//ä¸åªæ˜¯3ï¼Œ6ä¹Ÿè¢«å»æ‰äº†ï¼ŒåŸå› å°±åœ¨äºå‡½æ•°å¯¹è±¡çš„å€¼ä¼ é€’ï¼ˆcopyï¼‰,æ‰€ä»¥åº”è¯¥å¯¹åšåˆ¤æ–­å‡½æ•°ç”¨çº¯å‡½æ•°
 	return 0;
 }

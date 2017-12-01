@@ -1,4 +1,4 @@
-//#include <algorithm>
+﻿//#include <algorithm>
 //#include <list>
 //#include <functional>
 #include <iostream>

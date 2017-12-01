@@ -1,4 +1,4 @@
-// item36.cpp : Defines the entry point for the console application.
+ï»¿// item36.cpp : Defines the entry point for the console application.
 //
 #include <algorithm>
 #include <vector>
@@ -14,18 +14,18 @@ int isDefective(int w)
 		return 0;
 }
 
-//template<typename InputIterator,    // Ò»¸ö²»ºÜÕıÈ·µÄ
-//typename OutputIterator,  // copy_ifÊµÏÖ
+//template<typename InputIterator,    // ä¸€ä¸ªä¸å¾ˆæ­£ç¡®çš„
+//typename OutputIterator,  // copy_ifå®ç°
 //typename Predicate>
 //OutputIterator copy_if(InputIterator begin,
 //					   InputIterator end,
 //					   OutputIterator destBegin, Predicate p)
 //{
-//	return remove_copy_if(begin, end, destBegin, not1(p));//º¯ÊıpÎŞ·¨ÊÊÅänot1
+//	return remove_copy_if(begin, end, destBegin, not1(p));//å‡½æ•°pæ— æ³•é€‚é…not1
 //}
 
-template<typename InputIterator,    // Ò»¸öcopy_ifµÄ
-typename OutputIterator,  // ÕıÈ·ÊµÏÖ
+template<typename InputIterator,    // ä¸€ä¸ªcopy_ifçš„
+typename OutputIterator,  // æ­£ç¡®å®ç°
 typename Predicate>
 OutputIterator copy_if(InputIterator begin,
 					   InputIterator end,

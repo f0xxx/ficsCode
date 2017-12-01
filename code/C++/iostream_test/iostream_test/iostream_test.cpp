@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -18,10 +18,10 @@ string mumble( int *array, int size )
 		out_message << "error: "<< program_name << "--" << version
 			<< ": " << __FILE__ << ": " << __LINE__
 			<<" -- ptr is set to 0; "<< " must address some array.\n";
-		return out_message.str();		// ·µ»Øµ×²ã string ¶ÔÏó
+		return out_message.str();		// è¿”å›åº•å±‚ string å¯¹è±¡
 	}
 	//...
-		return "";		// ·µ»Øµ×²ã string ¶ÔÏó
+		return "";		// è¿”å›åº•å±‚ string å¯¹è±¡
 }
 
 inline void max_out( int val1, int val2 ) 
@@ -49,11 +49,11 @@ bool length_less( string s1, string s2 )
 //{
 //	string in_string;
 //	
-//	cout << "Please enter your name: ";		// ÏòÓÃ»§ÖÕ¶ËĞ´×Ö·û´®
-//	cin >> in_string;		// °ÑÓÃ»§ÊäÈëµÄ¶ÁÈ¡µ½ in_string ÖĞ
+//	cout << "Please enter your name: ";		// å‘ç”¨æˆ·ç»ˆç«¯å†™å­—ç¬¦ä¸²
+//	cin >> in_string;		// æŠŠç”¨æˆ·è¾“å…¥çš„è¯»å–åˆ° in_string ä¸­
 //
 //	if ( in_string.empty() )
-//		cerr << "error: input string is empty!\n";	// ²úÉúÒ»¸ö´íÎóÏûÏ¢Êä³öµ½ÓÃ»§ÖÕ¶Ë
+//		cerr << "error: input string is empty!\n";	// äº§ç”Ÿä¸€ä¸ªé”™è¯¯æ¶ˆæ¯è¾“å‡ºåˆ°ç”¨æˆ·ç»ˆç«¯
 //	else
 //		cout << "hello, " << in_string << "!\n";
 //
@@ -65,7 +65,7 @@ bool length_less( string s1, string s2 )
 //	string ifile;
 //	cout << "Please enter file to sort: ";
 //	cin >> ifile;
-//	ifstream infile( ifile.c_str() );	// ¹¹ÔìÒ»¸ö ifstream ÊäÈëÎÄ¼ş¶ÔÏó
+//	ifstream infile( ifile.c_str() );	// æ„é€ ä¸€ä¸ª ifstream è¾“å…¥æ–‡ä»¶å¯¹è±¡
 //
 //	if( ! infile ) 
 //	{
@@ -73,7 +73,7 @@ bool length_less( string s1, string s2 )
 //		return -1;
 //	}
 //	string ofile = ifile + ".sort";
-//	ofstream outfile( ofile.c_str() );	// ¹¹ÔìÒ»¸ö ofstream Êä³öÎÄ¼ş¶ÔÏó
+//	ofstream outfile( ofile.c_str() );	// æ„é€ ä¸€ä¸ª ofstream è¾“å‡ºæ–‡ä»¶å¯¹è±¡
 //
 //	if( !outfile ) 
 //	{
@@ -92,7 +92,7 @@ bool length_less( string s1, string s2 )
 //	sort( text.begin(), text.end() );
 //	vector<string>::iterator iter = text.begin();
 //	for ( cnt = 1; iter != text.end(); ++iter, ++cnt )
-//		outfile << *iter<< (cnt%8 ? " " : "\n" );		// ok: °ÑÅÅĞòºóµÄ´Ê´òÓ¡µ½ outfile
+//		outfile << *iter<< (cnt%8 ? " " : "\n" );		// ok: æŠŠæ’åºåçš„è¯æ‰“å°åˆ° outfile
 //
 //	return 0;
 //}
@@ -112,7 +112,7 @@ bool length_less( string s1, string s2 )
 //	cout << sizeof( "ulysses" );
 //	cout << endl;
 //
-//	// Êä³ö²Ù×÷·û¿ÉÒÔ±»Á¬½ÓÔÚÒ»Æğ
+//	// è¾“å‡ºæ“ä½œç¬¦å¯ä»¥è¢«è¿æ¥åœ¨ä¸€èµ·
 //	cout << "The length of \"ulysses\" is:\t"
 //		<< strlen( "ulysses" ) << '\n';
 //	cout << "The size of \"ulysses\" is:\t"
@@ -157,7 +157,7 @@ bool length_less( string s1, string s2 )
 //	cout << "These are Pooh's pals: ";
 //	ostream_iterator< string > output( cout, " " );
 //
-//	copy( iter, iter_end, output );	// °ÑÃ¿¸öÔªËØ¿½±´µ½ cout ...
+//	copy( iter, iter_end, output );	// æŠŠæ¯ä¸ªå…ƒç´ æ‹·è´åˆ° cout ...
 //	cout << endl;
 //
 //	return 0;
@@ -169,7 +169,7 @@ bool length_less( string s1, string s2 )
 //	string item_name;
 //	double item_price;
 //	cout << "Please enter the item_number, item_name, and price: "<< endl;
-//	cin >> item_number;	//ÓĞÁ½ÖÖÇé¿ö»áÊ¹Ò»¸öistream¶ÔÏó±»¼ÆËãÎªfalse,¶Áµ½ÎÄ¼ş½áÊø»òÓöµ½Ò»¸öÎŞĞ§µÄÖµ
+//	cin >> item_number;	//æœ‰ä¸¤ç§æƒ…å†µä¼šä½¿ä¸€ä¸ªistreamå¯¹è±¡è¢«è®¡ç®—ä¸ºfalse,è¯»åˆ°æ–‡ä»¶ç»“æŸæˆ–é‡åˆ°ä¸€ä¸ªæ— æ•ˆçš„å€¼
 //	cin >> item_name;
 //	cin >> item_price;	
 //	cout << "The values entered are: item# "
@@ -183,11 +183,11 @@ bool length_less( string s1, string s2 )
 int main(int argc, char* argv[])
 {
 	char ch;
-	while ( cin >> ch )	// ¶ÁÈëÃ¿¸ö×Ö·ûÈ»ºóÊä³ö²»°üÀ¨¿Õ°××Ö·û
+	while ( cin >> ch )	// è¯»å…¥æ¯ä¸ªå­—ç¬¦ç„¶åè¾“å‡ºä¸åŒ…æ‹¬ç©ºç™½å­—ç¬¦
 		cout << ch;
 	cout << endl;
 
-	//while ( cin.get( ch ))	// »ñÈ¡Ã¿¸ö×Ö·û°üÀ¨¿Õ°××Ö·û
+	//while ( cin.get( ch ))	// è·å–æ¯ä¸ªå­—ç¬¦åŒ…æ‹¬ç©ºç™½å­—ç¬¦
 	//	cout.put( ch );
 	//cout << endl;
 	//return 0;
@@ -198,17 +198,17 @@ int main(int argc, char* argv[])
 //
 //	istream_iterator< string > in( cin ), eos ;
 //	vector< string > text ;
-//	copy( in , eos , back_inserter( text ) ) ;	// ´Ó±ê×¼ÊäÈëÏò text ¿½±´Öµ
+//	copy( in , eos , back_inserter( text ) ) ;	// ä»æ ‡å‡†è¾“å…¥å‘ text æ‹·è´å€¼
 //
 //	sort( text.begin() , text.end() ) ;
 //	vector< string >::iterator it ;
 //	it = unique( text.begin() , text.end() ) ;
-//	text.erase( it , text.end() ) ;	// É¾³ıËùÓĞÖØ¸´µÄÖµ
+//	text.erase( it , text.end() ) ;	// åˆ é™¤æ‰€æœ‰é‡å¤çš„å€¼
 //
 //	int line_cnt = 1 ;
 //	for ( vector< string >::iterator iter = text.begin();
 //		iter != text.end() ; ++iter , ++line_cnt )
-//		cout << *iter<< ( line_cnt % 9 ? " " : "\n" ) ;// ÏÔÊ¾½á¹û vector
+//		cout << *iter<< ( line_cnt % 9 ? " " : "\n" ) ;// æ˜¾ç¤ºç»“æœ vector
 //	cout << endl;
 //	return 0;
 //}
@@ -217,10 +217,10 @@ int main(int argc, char* argv[])
 //{
 //	const int bufSize = 24;
 //	char buf[ bufSize ], largest[ bufSize ];
-//	int curLen, max = -1, cnt = 0;	// ´æ·ÅÍ³¼ÆÊı;
+//	int curLen, max = -1, cnt = 0;	// å­˜æ”¾ç»Ÿè®¡æ•°;
 //
-//	while ( cin >>/* setw( bufSize ) >> */buf )	//setw()°Ñ³¤¶ÈµÈÓÚ»ò´óÓÚbufSizeµÄ×Ö·û´®·Ö³É
-//											//×î´ó³¤¶ÈÎªbufSize - 1µÄÁ½¸ö»ò¶à¸ö×Ö·û´®
+//	while ( cin >>/* setw( bufSize ) >> */buf )	//setw()æŠŠé•¿åº¦ç­‰äºæˆ–å¤§äºbufSizeçš„å­—ç¬¦ä¸²åˆ†æˆ
+//											//æœ€å¤§é•¿åº¦ä¸ºbufSize - 1çš„ä¸¤ä¸ªæˆ–å¤šä¸ªå­—ç¬¦ä¸²
 //	{
 //		curLen = strlen( buf );
 //		++cnt;
@@ -239,13 +239,13 @@ int main(int argc, char* argv[])
 //int main(int argc, char* argv[])
 //{
 //	string buf, largest;
-//	int curLen, max = -1, cnt = 0;	// ´æ·ÅÍ³¼ÆÊı:
+//	int curLen, max = -1, cnt = 0;	// å­˜æ”¾ç»Ÿè®¡æ•°:
 //
 //	while ( cin >> buf ) 
 //	{
 //		curLen = buf.size();
 //		++cnt;
-//		if ( curLen > max )	// ÓÖ³öÏÖ×î³¤µ¥´ÊÁË? ±£´æ
+//		if ( curLen > max )	// åˆå‡ºç°æœ€é•¿å•è¯äº†? ä¿å­˜
 //		{
 //			max = curLen;
 //			largest = buf;
@@ -261,12 +261,12 @@ int main(int argc, char* argv[])
 //{
 //	istream_iterator< string > input( cin ), eos;
 //	vector< string > text;
-//	copy( input, eos, back_inserter( text ));	// copy ÊÇÒ»¸ö·ºĞÍËã·¨
+//	copy( input, eos, back_inserter( text ));	// copy æ˜¯ä¸€ä¸ªæ³›å‹ç®—æ³•
 //
 //	string filt_elems( "\",.?;:");
 //	filter_string( text.begin(), text.end(), filt_elems );
 //	int cnt = text.size();
-//	vector< string >::iterator max = max_element( text.begin(), text.end(), length_less);	// max_element ÊÇÒ»¸ö·ºĞÍËã·¨
+//	vector< string >::iterator max = max_element( text.begin(), text.end(), length_less);	// max_element æ˜¯ä¸€ä¸ªæ³›å‹ç®—æ³•
 //
 //	int len = max->size();
 //	cout << "The number of words read is "<< cnt << endl;
@@ -284,14 +284,14 @@ int main(int argc, char* argv[])
 //		switch (ch) 
 //		{
 //		case '/':
-//			// ÊÇ×¢ÊÍĞĞÂğ? ÓÃ peek() ¿´Ò»¿´:
-//			// ÊÇµÄ? ignore() ÓàÏÂµÄĞĞ
+//			// æ˜¯æ³¨é‡Šè¡Œå—? ç”¨ peek() çœ‹ä¸€çœ‹:
+//			// æ˜¯çš„? ignore() ä½™ä¸‹çš„è¡Œ
 //			next = cin.peek();
 //			if ( next == '/' )
 //				cin.ignore( lineSize, '\n' );
 //			break;
 //		case '>':
-//			// ²éÕÒ >>=
+//			// æŸ¥æ‰¾ >>=
 //				next = cin.peek();
 //			if ( next == '>' )
 //			{
@@ -334,7 +334,7 @@ int main(int argc, char* argv[])
 //int main(int argc, char* argv[])	
 //{
 //	int ch;
-//	// »òÊ¹ÓÃ:
+//	// æˆ–ä½¿ç”¨:
 //	// while (( ch = cin.get() ) && ch != EOF )
 //	while (( ch = cin.get()) != EOF )	//get()
 //		cout.put(ch);
@@ -347,12 +347,12 @@ int main(int argc, char* argv[])
 //	char line[ max_line ];
 //	while ( cin.get( line, max_line ))//get(char *sink, streamsize size, char delimiter='\n')
 //	{
-//		int get_count = cin.gcount();	// ×î´ó¶ÁÈ¡ÊıÁ¿ max_line - 1, Ò²¿ÉÒÔÎª null
+//		int get_count = cin.gcount();	// æœ€å¤§è¯»å–æ•°é‡ max_line - 1, ä¹Ÿå¯ä»¥ä¸º null
 //
 //		cout << "characters actually read: "
 //			<< get_count << endl;
 //	
-//		if ( get_count & max_line-1 )	// ´¦ÀíÃ¿Ò»ĞĞÈç¹ûÓöµ½»»ĞĞ·ûÔÚ¶ÁÏÂÒ»ĞĞÖ®Ç°È¥µôËü
+//		if ( get_count & max_line-1 )	// å¤„ç†æ¯ä¸€è¡Œå¦‚æœé‡åˆ°æ¢è¡Œç¬¦åœ¨è¯»ä¸‹ä¸€è¡Œä¹‹å‰å»æ‰å®ƒ
 //			cin.ignore();	//ignore( streamsize length = 1, int delim = traits::eof )
 //	}
 //	return 0;
@@ -361,14 +361,14 @@ int main(int argc, char* argv[])
 //int main(int argc, char* argv[])
 //{
 //	const int lineSize = 1024;
-//	int lcnt = 0; // ¶ÁÈë¶àÉÙĞĞ
-//	int max = -1; // ×î³¤ĞĞµÄ³¤¶È
+//	int lcnt = 0; // è¯»å…¥å¤šå°‘è¡Œ
+//	int max = -1; // æœ€é•¿è¡Œçš„é•¿åº¦
 //	char inBuf[ lineSize ]; 
-//	while (cin.getline( inBuf, lineSize ))	// ¶ÁÈ¡ 1024 ¸ö×Ö·û»òÕßÓöµ½»»ĞĞ·û
+//	while (cin.getline( inBuf, lineSize ))	// è¯»å– 1024 ä¸ªå­—ç¬¦æˆ–è€…é‡åˆ°æ¢è¡Œç¬¦
 //	{
-//		int readin = cin.gcount();		// Êµ¼Ê¶ÁÈë¶àÉÙ×Ö·û
+//		int readin = cin.gcount();		// å®é™…è¯»å…¥å¤šå°‘å­—ç¬¦
 //
-//		++lcnt;		// Í³¼Æ: ĞĞÊı×î³¤ĞĞ
+//		++lcnt;		// ç»Ÿè®¡: è¡Œæ•°æœ€é•¿è¡Œ
 //
 //		if ( readin > max )
 //			max = readin;
@@ -418,7 +418,7 @@ private:
 
 ostream& operator<<( ostream& os, const WordCount& wd )
 {
-	//os << "< " << wd.occurs << " > "<< wd.word;	// ¸ñÊ½: <occurs> word
+	//os << "< " << wd.occurs << " > "<< wd.word;	// æ ¼å¼: <occurs> word
 	//return os;
 	os << "<" << wd._occurList.size() << "> "<< wd._word << endl;
 	int cnt = 0, onLine = 6;
@@ -427,7 +427,7 @@ ostream& operator<<( ostream& os, const WordCount& wd )
 	for ( ; first != last; ++first )
 	{
 		os << *first << " ";		// os << Location
-		if ( ++cnt == onLine )		// ¸ñÊ½»¯: 6 ¸öÒ»ĞĞ
+		if ( ++cnt == onLine )		// æ ¼å¼åŒ–: 6 ä¸ªä¸€è¡Œ
 		{ os << "\n"; cnt = 0; }
 	}
 	return os;
@@ -435,31 +435,31 @@ ostream& operator<<( ostream& os, const WordCount& wd )
 
 istream& operator>>( istream &is, WordCount &wd )
 {
-	/* WordCount ¶ÔÏó±»¶ÁÈëµÄ¸ñÊ½:
+	/* WordCount å¯¹è±¡è¢«è¯»å…¥çš„æ ¼å¼:
 	* <2> string
 	* <7,3> <12,36>
 	*/
 	int ch;
-	/* ¶ÁÈëĞ¡ÓÚ·ûºÅ, Èç¹û²»´æÔÚ
-	* ÔòÉèÖÃ istream ÎªÊ§°Ü×´Ì¬²¢ÍË³ö
+	/* è¯»å…¥å°äºç¬¦å·, å¦‚æœä¸å­˜åœ¨
+	* åˆ™è®¾ç½® istream ä¸ºå¤±è´¥çŠ¶æ€å¹¶é€€å‡º
 	*/
 	if ((ch = is.get()) != '<' )
 	{
 		is.setstate( ios_base::failbit );
 		return is;
 	}
-	// ¶ÁÈë¶àÉÙ¸ö
+	// è¯»å…¥å¤šå°‘ä¸ª
 	int occurs;
 	is >> occurs;
-	// È¡ >; ²»¼ì²é´íÎó
+	// å– >; ä¸æ£€æŸ¥é”™è¯¯
 	while ( is && (ch = is.get()) != '>' ) ;
 	is >> wd._word;
-	// ¶ÁÈëÎ»ÖÃ
-	// Ã¿¸öÎ»ÖÃµÄ¸ñÊ½: < line, col >
+	// è¯»å…¥ä½ç½®
+	// æ¯ä¸ªä½ç½®çš„æ ¼å¼: < line, col >
 	for ( int ix = 0; ix < occurs; ++ix )
 	{
 		int line, col;
-		// ÌáÈ¡Öµ
+		// æå–å€¼
 		while (is && (ch = is.get())!= '<' ) ;
 		is >> line;
 		while (is && (ch = is.get())!= ',' ) ;
@@ -476,7 +476,7 @@ istream& operator>>( istream &is, WordCount &wd )
 //	//WordCount wd( "sadness", 12 );
 //	//cout << "wd:\n" << wd << endl;
 //	WordCount search( "rosebud" );
-//	search.found(11,3); search.found(11,8);	// Îª¼òµ¥Æğ¼û, Ö±½ÓĞ´Èë³öÏÖ´ÎÊı
+//	search.found(11,3); search.found(11,8);	// ä¸ºç®€å•èµ·è§, ç›´æ¥å†™å…¥å‡ºç°æ¬¡æ•°
 //	search.found(14,2); search.found(34,6);
 //	search.found(49,7); search.found(67,5);
 //	search.found(81,2); search.found(82,3);
@@ -502,7 +502,7 @@ istream& operator>>( istream &is, WordCount &wd )
 
 //int main(int argc, char* argv[])
 //{
-//	ofstream outFile( "copy.out" );	// ´ò¿ªÎÄ¼ş copy.out ÓÃÓÚÊä³ö
+//	ofstream outFile( "copy.out" );	// æ‰“å¼€æ–‡ä»¶ copy.out ç”¨äºè¾“å‡º
 //
 //	if ( ! outFile )
 //	{
@@ -521,7 +521,7 @@ istream& operator>>( istream &is, WordCount &wd )
 //	string file_name;
 //	cin >> file_name;
 //
-//	ifstream inFile( file_name.c_str() );	// ´ò¿ªÎÄ¼ş copy.out ÓÃÓÚÊäÈë
+//	ifstream inFile( file_name.c_str() );	// æ‰“å¼€æ–‡ä»¶ copy.out ç”¨äºè¾“å…¥
 //	if ( !inFile ) {
 //		cerr << "unable to open input file: "
 //			<< file_name << " -- bailing out!\n";
@@ -574,12 +574,12 @@ void filter_string_new( InputIterator first, InputIterator last, string filt_ele
 //	const int fileCnt = 5;
 //	string fileTabl[ fileCnt ] = {"Melville","Joyce","Musil","Proust","Kafka"};
 //
-//	ifstream inFile; // Ã»ÓĞÁ¬½ÓÈÎºÎÎÄ¼ş
+//	ifstream inFile; // æ²¡æœ‰è¿æ¥ä»»ä½•æ–‡ä»¶
 //	for ( int ix = 0; ix < fileCnt; ++ix )
 //	{
 //		inFile.open( fileTabl[ix].c_str() );
-//		// ... ÅĞ¶ÏÊÇºÏ´ò¿ª³É¹¦
-//		// ... ´¦ÀíÎÄ¼ş
+//		// ... åˆ¤æ–­æ˜¯åˆæ‰“å¼€æˆåŠŸ
+//		// ... å¤„ç†æ–‡ä»¶
 //		inFile.close();
 //	}
 //	return 0;
@@ -597,9 +597,9 @@ void filter_string_new( InputIterator first, InputIterator last, string filt_ele
 //		cnt++;
 //		if ( ch == '\n' )
 //		{
-//			fstream::pos_type mark = inOut.tellg();	// ±ê¼Çµ±Ç°Î»ÖÃ
+//			fstream::pos_type mark = inOut.tellg();	// æ ‡è®°å½“å‰ä½ç½®
 //			inOut << cnt << ' ';
-//			inOut.seekg( mark ); // »Ö¸´Î»ÖÃ
+//			inOut.seekg( mark ); // æ¢å¤ä½ç½®
 //		}
 //	}
 //	inOut.clear();

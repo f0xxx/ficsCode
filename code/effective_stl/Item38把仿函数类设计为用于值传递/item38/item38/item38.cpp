@@ -1,4 +1,4 @@
-// item38.cpp : Defines the entry point for the console application.
+ï»¿// item38.cpp : Defines the entry point for the console application.
 //
 #include <algorithm>
 #include <deque>
@@ -8,69 +8,69 @@ using namespace std;
 
 
 class DoSomething:
-	public unary_function<int, void>// Ìõ¿î40½âÊÍÁËÕâ¸ö»ùÀà
+	public unary_function<int, void>// æ¡æ¬¾40è§£é‡Šäº†è¿™ä¸ªåŸºç±»
 {  
 public:
 		void operator()(int x) {}
 };
 
 //template<typename T>
-//class BPFC:     // BPFC = ¡°Big Polymorphic
-//	public     // Functor Class¡±
-//	unary_function<T, void> {  // Ìõ¿î40½âÊÍÁËÕâ¸ö»ùÀà
+//class BPFC:     // BPFC = â€œBig Polymorphic
+//	public     // Functor Classâ€
+//	unary_function<T, void> {  // æ¡æ¬¾40è§£é‡Šäº†è¿™ä¸ªåŸºç±»
 //private:
-//	Widget w;     // Õâ¸öÀàÓĞºÜ¶àÊı¾İ£¬
-//	Int x;     // ËùÒÔÓÃÖµ´«µİ
-//	...     // »áÓ°ÏìĞ§ÂÊ
+//	Widget w;     // è¿™ä¸ªç±»æœ‰å¾ˆå¤šæ•°æ®ï¼Œ
+//	Int x;     // æ‰€ä»¥ç”¨å€¼ä¼ é€’
+//	...     // ä¼šå½±å“æ•ˆç‡
 //public:
-//	virtual void operator()(const T& val) const; // ÕâÊÇÒ»¸öĞéº¯Êı£¬
-//	...     // ËùÒÔÇĞ¸îÊ±»á³öÎÊÌâ
+//	virtual void operator()(const T& val) const; // è¿™æ˜¯ä¸€ä¸ªè™šå‡½æ•°ï¼Œ
+//	...     // æ‰€ä»¥åˆ‡å‰²æ—¶ä¼šå‡ºé—®é¢˜
 //};
 
-template<typename T>     // ÓÃÓÚĞŞ¸ÄµÄBPFC
-class BPFCImpl;		// µÄĞÂÊµÏÖÀà
+template<typename T>     // ç”¨äºä¿®æ”¹çš„BPFC
+class BPFCImpl;		// çš„æ–°å®ç°ç±»
 	
 template<typename T>
-class BPFC:      // Ğ¡µÄ£¬µ¥Ì¬°æµÄBPFC
+class BPFC:      // å°çš„ï¼Œå•æ€ç‰ˆçš„BPFC
 	public unary_function<T, void> 
 {
 private:
-	BPFCImpl<T> *pImpl;    // ÕâÊÇBPFCÎ¨Ò»µÄÊı¾İ
+	BPFCImpl<T> *pImpl;    // è¿™æ˜¯BPFCå”¯ä¸€çš„æ•°æ®
 public:
-	void operator()(const T& val) const   // ÏÖÔÚ·ÇĞé£»
-	{      // µ÷ÓÃBPFCImplµÄ
+	void operator()(const T& val) const   // ç°åœ¨éè™šï¼›
+	{      // è°ƒç”¨BPFCImplçš„
 		pImpl->operator() (val);
 	}
 	//...
 };
 
-template<typename T>     // ÓÃÓÚĞŞ¸ÄµÄBPFC
-class BPFCImpl		// µÄĞÂÊµÏÖÀà
+template<typename T>     // ç”¨äºä¿®æ”¹çš„BPFC
+class BPFCImpl		// çš„æ–°å®ç°ç±»
 {      
 private:
-	//Widget w;      // ÒÔÇ°ÔÚBPFCÀïµÄËùÓĞÊı¾İ
-	int x;      // ÏÖÔÚÔÚÕâÀï
+	//Widget w;      // ä»¥å‰åœ¨BPFCé‡Œçš„æ‰€æœ‰æ•°æ®
+	int x;      // ç°åœ¨åœ¨è¿™é‡Œ
 	//...
-	virtual ~BPFCImpl();    // ¶àÌ¬ÀàĞèÒª
-	// ĞéÎö¹¹º¯Êı
+	virtual ~BPFCImpl();    // å¤šæ€ç±»éœ€è¦
+	// è™šææ„å‡½æ•°
 	virtual void operator()(const T& val) const;
-	friend class BPFC<T>;    // ÈÃBPFC¿ÉÒÔ·ÃÎÊÕâĞ©Êı¾İ
+	friend class BPFC<T>;    // è®©BPFCå¯ä»¥è®¿é—®è¿™äº›æ•°æ®
 };
 
 
 int main(int argc, char* argv[])
 {
-	typedef deque<int>::iterator DequeIntIter;  // ·½±ãµÄtypedef
+	typedef deque<int>::iterator DequeIntIter;  // æ–¹ä¾¿çš„typedef
 	deque<int> di;
-	DoSomething d;     // ½¨Á¢Ò»¸öº¯Êı¶ÔÏó
+	DoSomething d;     // å»ºç«‹ä¸€ä¸ªå‡½æ•°å¯¹è±¡
 	
-	for_each<DequeIntIter,    // µ÷ÓÃfor_each£¬²ÎÊı
-	DoSomething&>(di.begin(),  // ÀàĞÍÊÇDequeIntIter
-				  di.end(),    // ºÍDoSomething&£»
-				  d);    // ÕâÆÈÊ¹d°´ÒıÓÃ´«µİºÍ·µ»Ø
+	for_each<DequeIntIter,    // è°ƒç”¨for_eachï¼Œå‚æ•°
+	DoSomething&>(di.begin(),  // ç±»å‹æ˜¯DequeIntIter
+				  di.end(),    // å’ŒDoSomething&ï¼›
+				  d);    // è¿™è¿«ä½¿dæŒ‰å¼•ç”¨ä¼ é€’å’Œè¿”å›
 
-	//ÒÔÉÏ×ö·¨¶ÔstlÊ¹ÓÃÕßÀ´Ëµ²¢²»ÊÊÓÃ£¬ÒòÎªÈç¹ûº¯Êı¶ÔÏóÊÇÒıÓÃ´«µİ£¬ÓĞĞ©STLËã·¨µÄÊµÏÖ²»ÄÜ±àÒë¡£
-	//ÕâÒâÎ¶×ÅÁ½¼şÊÂ¡£ÈÃ·Âº¯ÊıÀà¾¡¿ÉÄÜµÄĞ¡£¬¶øÇÒÈÃËüÃÇµ¥Ì¬£¨²»ÒªÊ¹ÓÃĞéº¯Êı£©¡£
+	//ä»¥ä¸Šåšæ³•å¯¹stlä½¿ç”¨è€…æ¥è¯´å¹¶ä¸é€‚ç”¨ï¼Œå› ä¸ºå¦‚æœå‡½æ•°å¯¹è±¡æ˜¯å¼•ç”¨ä¼ é€’ï¼Œæœ‰äº›STLç®—æ³•çš„å®ç°ä¸èƒ½ç¼–è¯‘ã€‚
+	//è¿™æ„å‘³ç€ä¸¤ä»¶äº‹ã€‚è®©ä»¿å‡½æ•°ç±»å°½å¯èƒ½çš„å°ï¼Œè€Œä¸”è®©å®ƒä»¬å•æ€ï¼ˆä¸è¦ä½¿ç”¨è™šå‡½æ•°ï¼‰ã€‚
 	
 	for_each(di.begin(),di.end(),BPFC<long>());
 

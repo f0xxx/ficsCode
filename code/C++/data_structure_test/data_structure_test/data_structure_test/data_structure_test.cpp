@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <time.h>
 using namespace std;
 
@@ -11,7 +11,7 @@ void Swap(T& a,T& b)
 	b=temp;
 }
 
-//Çó½â¶àÏîÊ½ºÍP(x)=Eci*x^n
+//æ±‚è§£å¤šé¡¹å¼å’ŒP(x)=Eci*x^n
 template <class T>
 T PolyEval(T ci[],int n,const T x)
 {
@@ -34,7 +34,7 @@ T PolyEvalNew(T ci[],int n,const T x)
 	return value;
 }
 
-//¼ÆËãÃû´Î
+//è®¡ç®—åæ¬¡
 template <class T>
 void Rank(T a[],int n,T r[])
 {
@@ -51,7 +51,7 @@ void Rank(T a[],int n,T r[])
 		
 }
 
-//°´Ãû´ÎÅÅĞò
+//æŒ‰åæ¬¡æ’åº
 template <class T>
 void Rearrange(T a[],int n,T r[])
 {
@@ -69,7 +69,7 @@ void Rearrange(T a[],int n,T r[])
 		}
 }
 
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 template <class T>
 int ChooseMax(T a[],int n)
 {
@@ -106,7 +106,7 @@ void SelectionSort(T a[],int n)
 
 }
 
-//Ã°ÅİÅÅĞò
+//å†’æ³¡æ’åº
 //template <class T>
 //void Bubble(T a[],int n)
 //{
@@ -135,7 +135,7 @@ void BubbleSort(T a[],int n)
 	for(int i=n;i>1&&Bubble(a,i);--i);
 }
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 template <class T>
 void Insert(T a[],int n,T &b)
 {
@@ -156,7 +156,7 @@ void InsertSort(T a[],int n)
 	}
 }
 
-//ÕÛ°ë²éÕÒ
+//æŠ˜åŠæŸ¥æ‰¾
 template<class T>
 int BinarySearch(T a[], const T& x, int n)
 {
@@ -279,7 +279,7 @@ public :
 	{ PostOrder(Visit, root); }
 	void LevelOrder(void (*Visit)(BinaryTreeNode<T> *u));
 private:
-	BinaryTreeNode<T> *root; // ¸ù½ÚµãÖ¸Õë
+	BinaryTreeNode<T> *root; // æ ¹èŠ‚ç‚¹æŒ‡é’ˆ
 	void PreOrder(void (*Visit)(BinaryTreeNode<T> *u),BinaryTreeNode<T> *t);
 	void InOrder(void (*Visit)(BinaryTreeNode<T> *u),BinaryTreeNode<T> *t);
 	void PostOrder(void (*Visit)(BinaryTreeNode<T> *u),BinaryTreeNode<T> *t);

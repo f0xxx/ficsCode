@@ -1,4 +1,4 @@
-// item33.cpp : Defines the entry point for the console application.
+ï»¿// item33.cpp : Defines the entry point for the console application.
 //
 
 #include <algorithm>
@@ -10,11 +10,11 @@ using namespace std;
 class Widget{
 public:
 	Widget(int d):data(d){};
-	bool isCertified() const{return data<5;}; // Õâ¸öWidgetÊÇ·ñÍ¨¹ı¼ìÑé
+	bool isCertified() const{return data<5;}; // è¿™ä¸ªWidgetæ˜¯å¦é€šè¿‡æ£€éªŒ
 	int data;
 };
 
-void delAndNullifyUncertified(Widget*& pWidget)  // Èç¹û*pWidgetÊÇÒ»¸öÎ´Í¨¹ı¼ìÑéWidget,É¾³ıÖ¸Õë²¢ÇÒÉèÖÃËüÎª¿Õ
+void delAndNullifyUncertified(Widget*& pWidget)  // å¦‚æœ*pWidgetæ˜¯ä¸€ä¸ªæœªé€šè¿‡æ£€éªŒWidget,åˆ é™¤æŒ‡é’ˆå¹¶ä¸”è®¾ç½®å®ƒä¸ºç©º
 {       
 	if (!pWidget->isCertified()) {   
 		delete pWidget;    
@@ -25,23 +25,23 @@ void delAndNullifyUncertified(Widget*& pWidget)  // Èç¹û*pWidgetÊÇÒ»¸öÎ´Í¨¹ı¼ìÑé
 int main(int argc, char* argv[])
 {
 
-	vector<Widget*> v;   // ½¨Á¢Ò»¸övectorÈ»ºóÓÃ¶¯Ì¬·ÖÅäµÄWidgetµÄÖ¸ÕëÌî³ä
+	vector<Widget*> v;   // å»ºç«‹ä¸€ä¸ªvectorç„¶åç”¨åŠ¨æ€åˆ†é…çš„Widgetçš„æŒ‡é’ˆå¡«å……
 	v.push_back(new Widget(3)); 
 	(*v.begin())->data=4;
 	v.push_back(new Widget(13)); 
 
-	//v.erase(remove_if(v.begin(), v.end(),    // É¾³ıÎ´Í¨¹ı¼ìÑéµÄ
-	//	not1(mem_fun(&Widget::isCertified))), // WidgetÖ¸Õë,×¢ÒâÕâÀï»áÔì³ÉÄÚ´æĞ¹Â©
-	//	v.end());    // mem_funµÄĞÅÏ¢¿É²é¿´MSDN
+	//v.erase(remove_if(v.begin(), v.end(),    // åˆ é™¤æœªé€šè¿‡æ£€éªŒçš„
+	//	not1(mem_fun(&Widget::isCertified))), // WidgetæŒ‡é’ˆ,æ³¨æ„è¿™é‡Œä¼šé€ æˆå†…å­˜æ³„æ¼
+	//	v.end());    // mem_funçš„ä¿¡æ¯å¯æŸ¥çœ‹MSDN
 	
-	//ÕıÈ·×ö·¨
-	for_each(v.begin(), v.end(),   // °ÑËùÓĞÖ¸ÏòÎ´Í¨¹ı¼ìÑéWidgetµÄ
-		delAndNullifyUncertified); // Ö¸ÕëÉ¾³ı²¢ÇÒÉèÖÃÎª¿Õ
+	//æ­£ç¡®åšæ³•
+	for_each(v.begin(), v.end(),   // æŠŠæ‰€æœ‰æŒ‡å‘æœªé€šè¿‡æ£€éªŒWidgetçš„
+		delAndNullifyUncertified); // æŒ‡é’ˆåˆ é™¤å¹¶ä¸”è®¾ç½®ä¸ºç©º
 
-	v.erase(remove(v.begin(), v.end(),   // ´ÓvÖĞ³ıÈ¥¿ÕÖ¸Õë
-		static_cast<Widget*>(0)), // 0±ØĞëÓ³Éäµ½Ò»¸öÖ¸Õë£¬
-		v.end());   // ÈÃC++¿ÉÒÔÕıÈ·µØÍÆ³öremoveµÄµÚÈı¸ö²ÎÊıµÄÀàĞÍ
+	v.erase(remove(v.begin(), v.end(),   // ä»vä¸­é™¤å»ç©ºæŒ‡é’ˆ
+		static_cast<Widget*>(0)), // 0å¿…é¡»æ˜ å°„åˆ°ä¸€ä¸ªæŒ‡é’ˆï¼Œ
+		v.end());   // è®©C++å¯ä»¥æ­£ç¡®åœ°æ¨å‡ºremoveçš„ç¬¬ä¸‰ä¸ªå‚æ•°çš„ç±»å‹
 
-	//µ±È»Ò²¿ÉÒÔÓÃÖÇÄÜÖ¸Õë¹ş
+	//å½“ç„¶ä¹Ÿå¯ä»¥ç”¨æ™ºèƒ½æŒ‡é’ˆå“ˆ
 	return 0;
 }

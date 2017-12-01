@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <iostream>
 using namespace std;
 
@@ -59,7 +59,7 @@ bool UseCount::makeonly()
 }
 
 
-class Handle		//Handle¿ÉÒÔ±ÜÃâÊ¹ÓÃsurrogateÊ±µÄ´óÁ¿¸´ÖÆ(Ê¹ÓÃÒıÓÃ±ÜÃâ¸±±¾²úÉú)
+class Handle		//Handleå¯ä»¥é¿å…ä½¿ç”¨surrogateæ—¶çš„å¤§é‡å¤åˆ¶(ä½¿ç”¨å¼•ç”¨é¿å…å‰¯æœ¬äº§ç”Ÿ)
 {
 public:
 	Handle();
@@ -75,8 +75,8 @@ public:
 	Handle& y(int);	
 
 private:
-	Point* p;		//ÈİÄÉPointµÄÅÉÉúÀà
-	UseCount u;			//³éÏóÒıÓÃ¼ÆÊı
+	Point* p;		//å®¹çº³Pointçš„æ´¾ç”Ÿç±»
+	UseCount u;			//æŠ½è±¡å¼•ç”¨è®¡æ•°
 };
 
 Handle::Handle():p(new Point){}
@@ -108,7 +108,7 @@ Handle& Handle::x(int x0)
 	//p->x(x0);
 	//return *this;
 
-	if(u.makeonly())		//Ğ´Ê±¸´ÖÆ(copy on write)
+	if(u.makeonly())		//å†™æ—¶å¤åˆ¶(copy on write)
 	{
 		p=new Point(*p);
 	}
@@ -121,7 +121,7 @@ Handle& Handle::y(int y0)
 	//up->p.y(y0);			
 	//return *this;
 
-	if(u.makeonly())		//Ğ´Ê±¸´ÖÆ(copy on write)
+	if(u.makeonly())		//å†™æ—¶å¤åˆ¶(copy on write)
 	{
 		p=new Point(*p);
 	}

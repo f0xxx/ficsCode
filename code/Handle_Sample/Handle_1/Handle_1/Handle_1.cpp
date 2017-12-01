@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <iostream>
 using namespace std;
 
@@ -18,7 +18,7 @@ private:
 	int xval,yval;
 };
 
-class Handle		//Handle¿ÉÒÔ±ÜÃâÊ¹ÓÃsurrogateÊ±µÄ´óÁ¿¸´ÖÆ(Ê¹ÓÃÒýÓÃ±ÜÃâ¸±±¾²úÉú)
+class Handle		//Handleå¯ä»¥é¿å…ä½¿ç”¨surrogateæ—¶çš„å¤§é‡å¤åˆ¶(ä½¿ç”¨å¼•ç”¨é¿å…å‰¯æœ¬äº§ç”Ÿ)
 {
 public:
 	Handle();
@@ -39,7 +39,7 @@ private:
 
 class UPoint
 {
-	friend class Handle;		//¶¼ÎªË½ÓÐ³ÉÔ±
+	friend class Handle;		//éƒ½ä¸ºç§æœ‰æˆå‘˜
 	Point p;
 	int u;
 
@@ -74,7 +74,7 @@ Handle& Handle::x(int x0)
 	//up->p.x(x0);
 	//return *this;
 
-	if(up->u!=1)		//Ð´Ê±¸´ÖÆ(copy on write)
+	if(up->u!=1)		//å†™æ—¶å¤åˆ¶(copy on write)
 	{
 		--up->u;
 		up=new UPoint(up->p);
@@ -88,7 +88,7 @@ Handle& Handle::y(int y0)
 	//up->p.y(y0);			
 	//return *this;
 
-	if(up->u!=1)		//Ð´Ê±¸´ÖÆ(copy on write)
+	if(up->u!=1)		//å†™æ—¶å¤åˆ¶(copy on write)
 	{
 		--up->u;
 		up=new UPoint(up->p);

@@ -1,4 +1,4 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 #include <list>
 #include <functional>
 #include <iostream>
@@ -38,15 +38,15 @@ int main(int argc, char* argv[])
 
 	//list<Widget*>::iterator i =
 	//	find_if(widgetPtrs.begin(), widgetPtrs.end(),
-	//	not1(isInteresting));  // ÓĞÎÊÌâÎŞ·¨ÊÊÅä
+	//	not1(isInteresting));  // æœ‰é—®é¢˜æ— æ³•é€‚é…
 
 	list<Widget*>::iterator i =
 		find_if(widgetPtrs.begin(), widgetPtrs.end(),
-		not1(ptr_fun(isInteresting)));  // Ã»ÎÊÌâ¿ÉÒÔÊÊÅä
+		not1(ptr_fun(isInteresting)));  // æ²¡é—®é¢˜å¯ä»¥é€‚é…
 
 	list<Widget*>::iterator j =
 		find_if(widgetPtrs.begin(), widgetPtrs.end(),
-		not1(MeetsThreshold<int>(10)));  // Ã»ÎÊÌâ¿ÉÒÔÊÊÅä
+		not1(MeetsThreshold<int>(10)));  // æ²¡é—®é¢˜å¯ä»¥é€‚é…
 
 	return 0;
 }

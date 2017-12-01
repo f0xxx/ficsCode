@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <iostream>
 using namespace std;
 
@@ -6,8 +6,8 @@ class vehicle
 {
 public:
 	virtual void start() = 0;
-	virtual vehicle* copy() const = 0;	//Ôö¼ÓÒ»¸ö¿½±´×ÔÉíµÄĞéº¯Êı
-	virtual ~vehicle(){};				//ĞéÎö¹¹º¯Êı
+	virtual vehicle* copy() const = 0;	//å¢åŠ ä¸€ä¸ªæ‹·è´è‡ªèº«çš„è™šå‡½æ•°
+	virtual ~vehicle(){};				//è™šææ„å‡½æ•°
 };
 
 class Roadvehicle:public vehicle
@@ -62,11 +62,11 @@ public:
 	}
 };
 
-class vehicleSurrogate		//´úÀíÀà
+class vehicleSurrogate		//ä»£ç†ç±»
 {
 public:
-	vehicleSurrogate();		//¶¨ÒåÊı×éĞèÒª
-	/*explicit*/ vehicleSurrogate(const vehicle&);	//ÔÊĞíÒşÊ½×ª»»
+	vehicleSurrogate();		//å®šä¹‰æ•°ç»„éœ€è¦
+	/*explicit*/ vehicleSurrogate(const vehicle&);	//å…è®¸éšå¼è½¬æ¢
 	~vehicleSurrogate();
 	vehicleSurrogate(const vehicleSurrogate&);
 	vehicleSurrogate& operator=(const vehicleSurrogate&);
@@ -99,28 +99,28 @@ void vehicleSurrogate::start()
 
 int main(int argc, char* argv[])
 {
-	//vehicle parking_lot[1000];		//Ö»ÄÜ´æ´¢vehicle¶ÔÏó£¬µ«ÊÇvehicleÎªĞé£¬¶øÇÒÅÉÉúÀà¶ÔÏóÔõ°ìÄØ£¿
-	//vehicle *parking_lot[1000];		//¿ÉÒÔ¼æ¹ËÅÉÉúÀà£¬µ«ÊÇÈ±µãÂï£¬Ö¸ÕëÎŞ·¨¿ØÖÆËùÖ¸¶ÔÏóµÄÉú´æÊ±¼ä£¬
-										//Ò»µ©ËùÖ¸¶ÔÏóÏûÊ§£¬Ö¸Õë¾Í²»ÖªµÀÖ¸ÏòÊ²Ã´¶«Î÷ÁË
+	//vehicle parking_lot[1000];		//åªèƒ½å­˜å‚¨vehicleå¯¹è±¡ï¼Œä½†æ˜¯vehicleä¸ºè™šï¼Œè€Œä¸”æ´¾ç”Ÿç±»å¯¹è±¡æ€åŠå‘¢ï¼Ÿ
+	//vehicle *parking_lot[1000];		//å¯ä»¥å…¼é¡¾æ´¾ç”Ÿç±»ï¼Œä½†æ˜¯ç¼ºç‚¹å˜›ï¼ŒæŒ‡é’ˆæ— æ³•æ§åˆ¶æ‰€æŒ‡å¯¹è±¡çš„ç”Ÿå­˜æ—¶é—´ï¼Œ
+										//ä¸€æ—¦æ‰€æŒ‡å¯¹è±¡æ¶ˆå¤±ï¼ŒæŒ‡é’ˆå°±ä¸çŸ¥é“æŒ‡å‘ä»€ä¹ˆä¸œè¥¿äº†
 	//Autovehicle x=**;
-	//parking_lot[1000]=new Autovehicle(x);		//±äÍ¨Ò»ÏÂ£¬´æ´¢¸±±¾£¬²»¹ı´øÀ´ÁË¶¯Ì¬ÄÚ´æ¹ÜÀíµÄ¸ºµ££¬
-												//¸üÖØÒªµÄÊÇÎÒÃÇ±ØĞëÊÂÏÈÖªµÀAutovehicleÕâ¸öÀàĞÍ²ÅÄÜÕâÃ´°ì
-												//Èç¹ûÎÒÃÇÒª´æ´¢ºÍÔªËØqÍ¬ÑùµÄÀàĞÍ¸ÃÔõÃ´°ìÄØ£¿
+	//parking_lot[1000]=new Autovehicle(x);		//å˜é€šä¸€ä¸‹ï¼Œå­˜å‚¨å‰¯æœ¬ï¼Œä¸è¿‡å¸¦æ¥äº†åŠ¨æ€å†…å­˜ç®¡ç†çš„è´Ÿæ‹…ï¼Œ
+												//æ›´é‡è¦çš„æ˜¯æˆ‘ä»¬å¿…é¡»äº‹å…ˆçŸ¥é“Autovehicleè¿™ä¸ªç±»å‹æ‰èƒ½è¿™ä¹ˆåŠ
+												//å¦‚æœæˆ‘ä»¬è¦å­˜å‚¨å’Œå…ƒç´ qåŒæ ·çš„ç±»å‹è¯¥æ€ä¹ˆåŠå‘¢ï¼Ÿ
 	//if(p!=q)									
 	//{
 	//	delete parking_lot[p];
-	//	parking_lot[p]=parking_lot[q];			//Ö¸ÏòÁËÍ¬ÑùµÄ¶ÔÏó
+	//	parking_lot[p]=parking_lot[q];			//æŒ‡å‘äº†åŒæ ·çš„å¯¹è±¡
 	//}
 
 	//if(p!=q)
 	//{
 	//	delete parking_lot[p];
-	//	parking_lot[p]=new vehicle(*parking_lot[q]) ;		//vehicleÎªĞé£¬¾ÍËã²»ÎªĞé£¬Ò²»á±»·Ö¸î
+	//	parking_lot[p]=new vehicle(*parking_lot[q]) ;		//vehicleä¸ºè™šï¼Œå°±ç®—ä¸ä¸ºè™šï¼Œä¹Ÿä¼šè¢«åˆ†å‰²
 	//}
 
-	vehicleSurrogate parking_lot[1000];			//Ê¹ÓÃ´úÀíÀà
+	vehicleSurrogate parking_lot[1000];			//ä½¿ç”¨ä»£ç†ç±»
 	Autovehicle x;
-	parking_lot[2] = x;			//Ïàµ±ÓÚparking_lot[2] = vehicleSurrogate(x);Æ¥Åäoperator=Ê±ÓÃ¹¹Ôìº¯Êı×öÁËÒşÊ½×ª»»
+	parking_lot[2] = x;			//ç›¸å½“äºparking_lot[2] = vehicleSurrogate(x);åŒ¹é…operator=æ—¶ç”¨æ„é€ å‡½æ•°åšäº†éšå¼è½¬æ¢
 
 	parking_lot[2].start();
 	

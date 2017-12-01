@@ -1,4 +1,4 @@
-// item31.cpp : Defines the entry point for the console application.
+ï»¿// item31.cpp : Defines the entry point for the console application.
 //
 
 #include <algorithm>
@@ -24,36 +24,36 @@ int main(int argc, char* argv[])
 	vector<int> values(mdata,mdata+16);       
 
 	//sort(values.begin()/*+3*/,
-	//	values.end()/*-3*/,		//¿ÉÒÔÅÅĞòÖ¸¶¨µÄÇø¼ä
+	//	values.end()/*-3*/,		//å¯ä»¥æ’åºæŒ‡å®šçš„åŒºé—´
 	//	qualityCompare); 
 
-	//partial_sort(values.begin(),    // °Ñ×îºÃµÄ5¸öÔªËØ
-	//	values.begin() + 5,  // £¨°´Ë³Ğò£©·ÅÔÚvaluesµÄÇ°¶Ë
+	//partial_sort(values.begin(),    // æŠŠæœ€å¥½çš„5ä¸ªå…ƒç´ 
+	//	values.begin() + 5,  // ï¼ˆæŒ‰é¡ºåºï¼‰æ”¾åœ¨valuesçš„å‰ç«¯
 	//	values.end(),
 	//	qualityCompare);
 
-	//nth_element (values.begin(),   // °Ñ×îºÃµÄ5¸öÔªËØ
-	//	values.begin() + 5,  // ·ÅÔÚvaluesÇ°¶Ë£¬
-	//	values.end(),   // µ«²»¹ØĞÄËüÃÇµÄË³Ğò
+	//nth_element (values.begin(),   // æŠŠæœ€å¥½çš„5ä¸ªå…ƒç´ 
+	//	values.begin() + 5,  // æ”¾åœ¨valueså‰ç«¯ï¼Œ
+	//	values.end(),   // ä½†ä¸å…³å¿ƒå®ƒä»¬çš„é¡ºåº
 	//	qualityCompare);    
 
-	//vector<int>::iterator begin(values.begin()); // ·½±ãµØ±íÊ¾valuesµÄ
-	//vector<int>::iterator end(values.end());  // ÆğµãºÍÖÕµãµü´úÆ÷µÄ±äÁ¿
-	//vector<int>::iterator goalPosition;  // Õâ¸öµü´úÆ÷Ö¸Ê¾ÁËÏÂÃæ´úÂëÒªÕÒµÄÖĞµÈÖÊÁ¿µÈ¼¶µÄvaluesµÄÎ»ÖÃ
-	//goalPosition = begin + values.size() / 2;  // ĞËÈ¤µÄvalues»áÊÇÓĞĞòµÄvectorµÄÖĞ¼ä
-	//nth_element(begin, goalPosition, end,  // ÕÒµ½valuesÖĞÖĞµÈÖÊÁ¿µÈ¼¶µÄÖµ
+	//vector<int>::iterator begin(values.begin()); // æ–¹ä¾¿åœ°è¡¨ç¤ºvaluesçš„
+	//vector<int>::iterator end(values.end());  // èµ·ç‚¹å’Œç»ˆç‚¹è¿­ä»£å™¨çš„å˜é‡
+	//vector<int>::iterator goalPosition;  // è¿™ä¸ªè¿­ä»£å™¨æŒ‡ç¤ºäº†ä¸‹é¢ä»£ç è¦æ‰¾çš„ä¸­ç­‰è´¨é‡ç­‰çº§çš„valuesçš„ä½ç½®
+	//goalPosition = begin + values.size() / 2;  // å…´è¶£çš„valuesä¼šæ˜¯æœ‰åºçš„vectorçš„ä¸­é—´
+	//nth_element(begin, goalPosition, end,  // æ‰¾åˆ°valuesä¸­ä¸­ç­‰è´¨é‡ç­‰çº§çš„å€¼
 	//	qualityCompare); 
 	//cout<<*goalPosition<<endl;
-	//vector<int>::iterator goaloffset;  // Õâ¸öµü´úÆ÷Ö¸Ê¾ÁËÏÂÃæ´úÂëÒªÕÒµÄÖĞµÈÖÊÁ¿µÈ¼¶µÄvaluesµÄÎ»ÖÃ
-	//goaloffset = begin + values.size() * 1/16;  // ĞËÈ¤µÄvalues»áÊÇÓĞĞòµÄvectorµÄ1/16
-	//nth_element(begin, goaloffset, end,  // ÕÒµ½valuesÖĞ15/16ÖÊÁ¿µÈ¼¶µÄÖµ
+	//vector<int>::iterator goaloffset;  // è¿™ä¸ªè¿­ä»£å™¨æŒ‡ç¤ºäº†ä¸‹é¢ä»£ç è¦æ‰¾çš„ä¸­ç­‰è´¨é‡ç­‰çº§çš„valuesçš„ä½ç½®
+	//goaloffset = begin + values.size() * 1/16;  // å…´è¶£çš„valuesä¼šæ˜¯æœ‰åºçš„vectorçš„1/16
+	//nth_element(begin, goaloffset, end,  // æ‰¾åˆ°valuesä¸­15/16è´¨é‡ç­‰çº§çš„å€¼
 	//	qualityCompare);  
 	//cout<<*goaloffset<<endl;
 
-	vector<int>::iterator goodEnd =   // °ÑËùÓĞÂú×ãhasAcceptableQuality
-		partition(values.begin(),   // µÄvaluesÒÆ¶¯µ½valuesÇ°¶Ë£¬
-		values.end(),  // ²¢ÇÒ·µ»ØÒ»¸öÖ¸ÏòµÚÒ»¸ö
-		hasAcceptableQuality); // ²»Âú×ãµÄvaluesµÄµü´úÆ÷
+	vector<int>::iterator goodEnd =   // æŠŠæ‰€æœ‰æ»¡è¶³hasAcceptableQuality
+		partition(values.begin(),   // çš„valuesç§»åŠ¨åˆ°valueså‰ç«¯ï¼Œ
+		values.end(),  // å¹¶ä¸”è¿”å›ä¸€ä¸ªæŒ‡å‘ç¬¬ä¸€ä¸ª
+		hasAcceptableQuality); // ä¸æ»¡è¶³çš„valuesçš„è¿­ä»£å™¨
 
 	return 0;
 }

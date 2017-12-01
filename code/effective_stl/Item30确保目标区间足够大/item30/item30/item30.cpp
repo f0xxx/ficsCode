@@ -1,4 +1,4 @@
-// item30.cpp : Defines the entry point for the console application.
+ï»¿// item30.cpp : Defines the entry point for the console application.
 //
 
 #include <algorithm>
@@ -16,21 +16,21 @@ int main(int argc, char* argv[])
 	vector<int> values(mdata,mdata+9);       
 	vector<int> results(mdata,mdata+9); 
 
-	//transform(values.begin(), values.end(),   //ÓÃtransmogrify¶ÔvaluesÖĞµÄÃ¿¸öÖµ½øĞĞ´¦Àí¸½¼Óµ½results
-	//	results.end(),							//´Ë´¦resultsÎ´ÓĞ×ã¹»¿Õ¼ä·ÅÈëvalues,±¨´í
-	//	transmogrify);							//Èç¹ûÖ®Ç°reserveÁË×ã¹»¿Õ¼ä,´ËĞ´·¨ÒÀÈ»ÊÇÎ´¶¨ÒåµÄ
+	//transform(values.begin(), values.end(),   //ç”¨transmogrifyå¯¹valuesä¸­çš„æ¯ä¸ªå€¼è¿›è¡Œå¤„ç†é™„åŠ åˆ°results
+	//	results.end(),							//æ­¤å¤„resultsæœªæœ‰è¶³å¤Ÿç©ºé—´æ”¾å…¥values,æŠ¥é”™
+	//	transmogrify);							//å¦‚æœä¹‹å‰reserveäº†è¶³å¤Ÿç©ºé—´,æ­¤å†™æ³•ä¾ç„¶æ˜¯æœªå®šä¹‰çš„
 
-	results.reserve(results.size() + values.size()); //±ÜÃâÖØĞÂ·ÖÅäÄÚ´æ,Ìá¸ßÏÂÃæ²åÈë²Ù×÷µÄĞ§ÂÊ
+	results.reserve(results.size() + values.size()); //é¿å…é‡æ–°åˆ†é…å†…å­˜,æé«˜ä¸‹é¢æ’å…¥æ“ä½œçš„æ•ˆç‡
 
-	//transform(values.begin(), values.end(),   //´Óºó²åÈë,ÕıÈ·
+	//transform(values.begin(), values.end(),   //ä»åæ’å…¥,æ­£ç¡®
 	//	back_inserter(results),  
 	//	transmogrify);   
 
-	//transform(values.begin(), values.end(),   //´ÓÇ°²åÈë,ÕıÈ·,ÓÃÓÚdeque
+	//transform(values.begin(), values.end(),   //ä»å‰æ’å…¥,æ­£ç¡®,ç”¨äºdeque
 	//	front_inserter(results),  
 	//	transmogrify);   
 
-	transform(values.begin(), values.end(),   //´ÓÖĞ¼ä²åÈë,ÕıÈ·
+	transform(values.begin(), values.end(),   //ä»ä¸­é—´æ’å…¥,æ­£ç¡®
 		inserter(results,results.begin()+results.size()/2),  
 		transmogrify);   
 
