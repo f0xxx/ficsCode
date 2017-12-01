@@ -45,140 +45,140 @@ void filter_string( InputIterator first, InputIterator last, string filt_elems =
 bool length_less( string s1, string s2 )
 { return s1.size() < s2.size(); }
 
-//int main(int argc, char* argv[])
-//{
-//	string in_string;
-//	
-//	cout << "Please enter your name: ";		// 向用户终端写字符串
-//	cin >> in_string;		// 把用户输入的读取到 in_string 中
-//
-//	if ( in_string.empty() )
-//		cerr << "error: input string is empty!\n";	// 产生一个错误消息输出到用户终端
-//	else
-//		cout << "hello, " << in_string << "!\n";
-//
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
+	string in_string;
+	
+	cout << "Please enter your name: ";		// 向用户终端写字符串
+	cin >> in_string;		// 把用户输入的读取到 in_string 中
 
-//int main(int argc, char* argv[])
-//{
-//	string ifile;
-//	cout << "Please enter file to sort: ";
-//	cin >> ifile;
-//	ifstream infile( ifile.c_str() );	// 构造一个 ifstream 输入文件对象
-//
-//	if( ! infile ) 
-//	{
-//		cerr << "error: unable to open input file: "<< ifile << endl;
-//		return -1;
-//	}
-//	string ofile = ifile + ".sort";
-//	ofstream outfile( ofile.c_str() );	// 构造一个 ofstream 输出文件对象
-//
-//	if( !outfile ) 
-//	{
-//		cerr << "error: unable to open output file: "
-//			<< ofile << endl;
-//		return -2;
-//	}
-//	string buffer;
-//	vector<string> text;
-//	int cnt = 1;
-//	while ( infile >> buffer ) 
-//	{
-//		text.push_back( buffer );
-//		cout << buffer << ( cnt++ % 8 ? " " : "\n" );
-//	}
-//	sort( text.begin(), text.end() );
-//	vector<string>::iterator iter = text.begin();
-//	for ( cnt = 1; iter != text.end(); ++iter, ++cnt )
-//		outfile << *iter<< (cnt%8 ? " " : "\n" );		// ok: 把排序后的词打印到 outfile
-//
-//	return 0;
-//}
+	if ( in_string.empty() )
+		cerr << "error: input string is empty!\n";	// 产生一个错误消息输出到用户终端
+	else
+		cout << "hello, " << in_string << "!\n";
 
-//int main(int argc, char* argv[])
-//{	
-//	cout<<mumble(0,0)<<endl;
-//	return 0;
-//}
+	return 0;
+}
 
-//int main(int argc, char* argv[])
-//{
-//	cout << "The length of \"ulysses\" is:\t";
-//	cout << strlen( "ulysses" );
-//	cout << '\n';
-//	cout << "The size of \"ulysses\" is:\t";
-//	cout << sizeof( "ulysses" );
-//	cout << endl;
-//
-//	// 输出操作符可以被连接在一起
-//	cout << "The length of \"ulysses\" is:\t"
-//		<< strlen( "ulysses" ) << '\n';
-//	cout << "The size of \"ulysses\" is:\t"
-//		<< sizeof( "ulysses" ) << endl<<endl;
-//
-//	int i = 1024;
-//	int *pi = &i;
-//	cout << "i: " << i<< "\t&i:\t" << &i << '\n';
-//	cout << "*pi: " << *pi<< "\tpi:\t" << pi << endl
-//		<< "\t\t&pi:\t" << &pi << endl<<endl;
-//
-//	const char *str = "vermeer";
-//	const char *pstr = str;
-//	cout << "The address of pstr is: "<< pstr << endl;
-//	cout << "The address of pstr is: "<< static_cast<void*>(const_cast<char*>(pstr)) << endl<<endl;
-//
-//	int ix = 10, jx = 20;
-//	cout << "The larger of " << ix;
-//	cout << ", " << jx << " is ";
-//	max_out( ix, jx );
-//	cout << endl<<endl;
-//
-//	cout << "default bool values: "<< true << " " << false
-//		<< "\nalpha bool values: "<< boolalpha<< true << " " << false<<endl<<endl;
-//
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
+	string ifile;
+	cout << "Please enter file to sort: ";
+	cin >> ifile;
+	ifstream infile( ifile.c_str() );	// 构造一个 ifstream 输入文件对象
 
-//int main(int argc, char* argv[])
-//{
-//	string pooh_pals[] = {"Tigger", "Piglet", "Eeyore", "Rabbit"};
-//
-//	vector<string> ppals( pooh_pals, pooh_pals+4 );
-//	vector<string>::iterator iter = ppals.begin();
-//	vector<string>::iterator iter_end = ppals.end();
-//	cout << "These are Pooh's pals: ";
-//	for ( ; iter != iter_end; iter++ )
-//		cout << *iter << " ";
-//	cout << endl;
-//
-//	iter = ppals.begin();
-//	cout << "These are Pooh's pals: ";
-//	ostream_iterator< string > output( cout, " " );
-//
-//	copy( iter, iter_end, output );	// 把每个元素拷贝到 cout ...
-//	cout << endl;
-//
-//	return 0;
-//}
+	if( ! infile ) 
+	{
+		cerr << "error: unable to open input file: "<< ifile << endl;
+		return -1;
+	}
+	string ofile = ifile + ".sort";
+	ofstream outfile( ofile.c_str() );	// 构造一个 ofstream 输出文件对象
 
-//int main(int argc, char* argv[])
-//{
-//	int item_number;
-//	string item_name;
-//	double item_price;
-//	cout << "Please enter the item_number, item_name, and price: "<< endl;
-//	cin >> item_number;	//有两种情况会使一个istream对象被计算为false,读到文件结束或遇到一个无效的值
-//	cin >> item_name;
-//	cin >> item_price;	
-//	cout << "The values entered are: item# "
-//		<< item_number << " "
-//		<< item_name << " @$"
-//		<< item_price << endl;
-//
-//	return 0;
-//}
+	if( !outfile ) 
+	{
+		cerr << "error: unable to open output file: "
+			<< ofile << endl;
+		return -2;
+	}
+	string buffer;
+	vector<string> text;
+	int cnt = 1;
+	while ( infile >> buffer ) 
+	{
+		text.push_back( buffer );
+		cout << buffer << ( cnt++ % 8 ? " " : "\n" );
+	}
+	sort( text.begin(), text.end() );
+	vector<string>::iterator iter = text.begin();
+	for ( cnt = 1; iter != text.end(); ++iter, ++cnt )
+		outfile << *iter<< (cnt%8 ? " " : "\n" );		// ok: 把排序后的词打印到 outfile
+
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{	
+	cout<<mumble(0,0)<<endl;
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	cout << "The length of \"ulysses\" is:\t";
+	cout << strlen( "ulysses" );
+	cout << '\n';
+	cout << "The size of \"ulysses\" is:\t";
+	cout << sizeof( "ulysses" );
+	cout << endl;
+
+	// 输出操作符可以被连接在一起
+	cout << "The length of \"ulysses\" is:\t"
+		<< strlen( "ulysses" ) << '\n';
+	cout << "The size of \"ulysses\" is:\t"
+		<< sizeof( "ulysses" ) << endl<<endl;
+
+	int i = 1024;
+	int *pi = &i;
+	cout << "i: " << i<< "\t&i:\t" << &i << '\n';
+	cout << "*pi: " << *pi<< "\tpi:\t" << pi << endl
+		<< "\t\t&pi:\t" << &pi << endl<<endl;
+
+	const char *str = "vermeer";
+	const char *pstr = str;
+	cout << "The address of pstr is: "<< pstr << endl;
+	cout << "The address of pstr is: "<< static_cast<void*>(const_cast<char*>(pstr)) << endl<<endl;
+
+	int ix = 10, jx = 20;
+	cout << "The larger of " << ix;
+	cout << ", " << jx << " is ";
+	max_out( ix, jx );
+	cout << endl<<endl;
+
+	cout << "default bool values: "<< true << " " << false
+		<< "\nalpha bool values: "<< boolalpha<< true << " " << false<<endl<<endl;
+
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	string pooh_pals[] = {"Tigger", "Piglet", "Eeyore", "Rabbit"};
+
+	vector<string> ppals( pooh_pals, pooh_pals+4 );
+	vector<string>::iterator iter = ppals.begin();
+	vector<string>::iterator iter_end = ppals.end();
+	cout << "These are Pooh's pals: ";
+	for ( ; iter != iter_end; iter++ )
+		cout << *iter << " ";
+	cout << endl;
+
+	iter = ppals.begin();
+	cout << "These are Pooh's pals: ";
+	ostream_iterator< string > output( cout, " " );
+
+	copy( iter, iter_end, output );	// 把每个元素拷贝到 cout ...
+	cout << endl;
+
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	int item_number;
+	string item_name;
+	double item_price;
+	cout << "Please enter the item_number, item_name, and price: "<< endl;
+	cin >> item_number;	//有两种情况会使一个istream对象被计算为false,读到文件结束或遇到一个无效的值
+	cin >> item_name;
+	cin >> item_price;	
+	cout << "The values entered are: item# "
+		<< item_number << " "
+		<< item_name << " @$"
+		<< item_price << endl;
+
+	return 0;
+}
 
 int main(int argc, char* argv[])
 {
@@ -193,192 +193,192 @@ int main(int argc, char* argv[])
 	//return 0;
 }
 
-//int main(int argc, char* argv[])
-//{
-//
-//	istream_iterator< string > in( cin ), eos ;
-//	vector< string > text ;
-//	copy( in , eos , back_inserter( text ) ) ;	// 从标准输入向 text 拷贝值
-//
-//	sort( text.begin() , text.end() ) ;
-//	vector< string >::iterator it ;
-//	it = unique( text.begin() , text.end() ) ;
-//	text.erase( it , text.end() ) ;	// 删除所有重复的值
-//
-//	int line_cnt = 1 ;
-//	for ( vector< string >::iterator iter = text.begin();
-//		iter != text.end() ; ++iter , ++line_cnt )
-//		cout << *iter<< ( line_cnt % 9 ? " " : "\n" ) ;// 显示结果 vector
-//	cout << endl;
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
 
-//int main(int argc, char* argv[])
-//{
-//	const int bufSize = 24;
-//	char buf[ bufSize ], largest[ bufSize ];
-//	int curLen, max = -1, cnt = 0;	// 存放统计数;
-//
-//	while ( cin >>/* setw( bufSize ) >> */buf )	//setw()把长度等于或大于bufSize的字符串分成
-//											//最大长度为bufSize - 1的两个或多个字符串
-//	{
-//		curLen = strlen( buf );
-//		++cnt;
-//		if ( curLen > max )		// new longest word? save it.
-//		{
-//			max = curLen;
-//			strcpy( largest, buf );
-//		}
-//	}
-//	cout << "The number of words read is "<< cnt << endl;
-//	cout << "The longest word has a length of "<< max << endl;
-//	cout << "The longest word is "<< largest << endl;
-//	return 0;
-//}
+	istream_iterator< string > in( cin ), eos ;
+	vector< string > text ;
+	copy( in , eos , back_inserter( text ) ) ;	// 从标准输入向 text 拷贝值
 
-//int main(int argc, char* argv[])
-//{
-//	string buf, largest;
-//	int curLen, max = -1, cnt = 0;	// 存放统计数:
-//
-//	while ( cin >> buf ) 
-//	{
-//		curLen = buf.size();
-//		++cnt;
-//		if ( curLen > max )	// 又出现最长单词了? 保存
-//		{
-//			max = curLen;
-//			largest = buf;
-//		}
-//	}
-//	cout << "The number of words read is "<< cnt << endl;
-//	cout << "The longest word has a length of "<< max << endl;
-//	cout << "The longest word is "<< largest << endl;
-//	return 0;
-//}
+	sort( text.begin() , text.end() ) ;
+	vector< string >::iterator it ;
+	it = unique( text.begin() , text.end() ) ;
+	text.erase( it , text.end() ) ;	// 删除所有重复的值
 
-//int main(int argc, char* argv[])
-//{
-//	istream_iterator< string > input( cin ), eos;
-//	vector< string > text;
-//	copy( input, eos, back_inserter( text ));	// copy 是一个泛型算法
-//
-//	string filt_elems( "\",.?;:");
-//	filter_string( text.begin(), text.end(), filt_elems );
-//	int cnt = text.size();
-//	vector< string >::iterator max = max_element( text.begin(), text.end(), length_less);	// max_element 是一个泛型算法
-//
-//	int len = max->size();
-//	cout << "The number of words read is "<< cnt << endl;
-//	cout << "The longest word has a length of "<< len << endl;
-//	cout << "The longest word is "<< *max << endl;
-//	return 0;
-//}
+	int line_cnt = 1 ;
+	for ( vector< string >::iterator iter = text.begin();
+		iter != text.end() ; ++iter , ++line_cnt )
+		cout << *iter<< ( line_cnt % 9 ? " " : "\n" ) ;// 显示结果 vector
+	cout << endl;
+	return 0;
+}
 
-//int main(int argc, char* argv[])
-//{
-//	int lineSize=1024;
-//	char ch, next, lookahead;
-//	while ( cin.get( ch ))
-//	{
-//		switch (ch) 
-//		{
-//		case '/':
-//			// 是注释行吗? 用 peek() 看一看:
-//			// 是的? ignore() 余下的行
-//			next = cin.peek();
-//			if ( next == '/' )
-//				cin.ignore( lineSize, '\n' );
-//			break;
-//		case '>':
-//			// 查找 >>=
-//				next = cin.peek();
-//			if ( next == '>' )
-//			{
-//				lookahead = cin.get();
-//				next = cin.peek();
-//				if ( next != '=' )
-//					cin.putback( lookahead );
-//			}
-//		}
-//	}
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
+	const int bufSize = 24;
+	char buf[ bufSize ], largest[ bufSize ];
+	int curLen, max = -1, cnt = 0;	// 存放统计数;
 
-//int main(int argc, char* argv[])
-//{
-//	char ch;
-//	int tab_cnt = 0, nl_cnt = 0, space_cnt = 0,
-//		period_cnt = 0, comma_cnt = 0;
-//	while ( cin.get( ch ))	//get(char& ch)
-//	{
-//		switch( ch )
-//		{
-//		case ' ': space_cnt++; break;
-//		case '\t': tab_cnt++; break;
-//		case '\n': nl_cnt++; break;
-//		case '.': period_cnt++; break;
-//		case ',': comma_cnt++; break;
-//		}
-//		cout.put( ch );
-//	}
-//	cout << "\nour statistics:\n\t"
-//		<< "spaces: " << space_cnt << '\t'
-//		<< "new lines: " << nl_cnt << '\t'
-//		<< "tabs: " << tab_cnt << "\n\t"
-//		<< "periods: " << period_cnt << '\t'
-//		<< "commas: " << comma_cnt << endl;
-//	return 0;
-//}
+	while ( cin >>/* setw( bufSize ) >> */buf )	//setw()把长度等于或大于bufSize的字符串分成
+											//最大长度为bufSize - 1的两个或多个字符串
+	{
+		curLen = strlen( buf );
+		++cnt;
+		if ( curLen > max )		// new longest word? save it.
+		{
+			max = curLen;
+			strcpy( largest, buf );
+		}
+	}
+	cout << "The number of words read is "<< cnt << endl;
+	cout << "The longest word has a length of "<< max << endl;
+	cout << "The longest word is "<< largest << endl;
+	return 0;
+}
 
-//int main(int argc, char* argv[])	
-//{
-//	int ch;
-//	// 或使用:
-//	// while (( ch = cin.get() ) && ch != EOF )
-//	while (( ch = cin.get()) != EOF )	//get()
-//		cout.put(ch);
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
+	string buf, largest;
+	int curLen, max = -1, cnt = 0;	// 存放统计数:
 
-//int main(int argc, char* argv[])
-//{
-//	const int max_line = 1024;
-//	char line[ max_line ];
-//	while ( cin.get( line, max_line ))//get(char *sink, streamsize size, char delimiter='\n')
-//	{
-//		int get_count = cin.gcount();	// 最大读取数量 max_line - 1, 也可以为 null
-//
-//		cout << "characters actually read: "
-//			<< get_count << endl;
-//	
-//		if ( get_count & max_line-1 )	// 处理每一行如果遇到换行符在读下一行之前去掉它
-//			cin.ignore();	//ignore( streamsize length = 1, int delim = traits::eof )
-//	}
-//	return 0;
-//}
+	while ( cin >> buf ) 
+	{
+		curLen = buf.size();
+		++cnt;
+		if ( curLen > max )	// 又出现最长单词了? 保存
+		{
+			max = curLen;
+			largest = buf;
+		}
+	}
+	cout << "The number of words read is "<< cnt << endl;
+	cout << "The longest word has a length of "<< max << endl;
+	cout << "The longest word is "<< largest << endl;
+	return 0;
+}
 
-//int main(int argc, char* argv[])
-//{
-//	const int lineSize = 1024;
-//	int lcnt = 0; // 读入多少行
-//	int max = -1; // 最长行的长度
-//	char inBuf[ lineSize ]; 
-//	while (cin.getline( inBuf, lineSize ))	// 读取 1024 个字符或者遇到换行符
-//	{
-//		int readin = cin.gcount();		// 实际读入多少字符
-//
-//		++lcnt;		// 统计: 行数最长行
-//
-//		if ( readin > max )
-//			max = readin;
-//		cout << "Line #" << lcnt<< "\tChars read: " << readin << endl;
-//		cout.write( inBuf, readin).put('\n').put('\n');
-//	}
-//	cout << "Total lines read: " << lcnt << endl;
-//	cout << "Longest line read: " << max << endl;
-//	return 0;
-//}
+int main(int argc, char* argv[])
+{
+	istream_iterator< string > input( cin ), eos;
+	vector< string > text;
+	copy( input, eos, back_inserter( text ));	// copy 是一个泛型算法
+
+	string filt_elems( "\",.?;:");
+	filter_string( text.begin(), text.end(), filt_elems );
+	int cnt = text.size();
+	vector< string >::iterator max = max_element( text.begin(), text.end(), length_less);	// max_element 是一个泛型算法
+
+	int len = max->size();
+	cout << "The number of words read is "<< cnt << endl;
+	cout << "The longest word has a length of "<< len << endl;
+	cout << "The longest word is "<< *max << endl;
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	int lineSize=1024;
+	char ch, next, lookahead;
+	while ( cin.get( ch ))
+	{
+		switch (ch) 
+		{
+		case '/':
+			// 是注释行吗? 用 peek() 看一看:
+			// 是的? ignore() 余下的行
+			next = cin.peek();
+			if ( next == '/' )
+				cin.ignore( lineSize, '\n' );
+			break;
+		case '>':
+			// 查找 >>=
+				next = cin.peek();
+			if ( next == '>' )
+			{
+				lookahead = cin.get();
+				next = cin.peek();
+				if ( next != '=' )
+					cin.putback( lookahead );
+			}
+		}
+	}
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	char ch;
+	int tab_cnt = 0, nl_cnt = 0, space_cnt = 0,
+		period_cnt = 0, comma_cnt = 0;
+	while ( cin.get( ch ))	//get(char& ch)
+	{
+		switch( ch )
+		{
+		case ' ': space_cnt++; break;
+		case '\t': tab_cnt++; break;
+		case '\n': nl_cnt++; break;
+		case '.': period_cnt++; break;
+		case ',': comma_cnt++; break;
+		}
+		cout.put( ch );
+	}
+	cout << "\nour statistics:\n\t"
+		<< "spaces: " << space_cnt << '\t'
+		<< "new lines: " << nl_cnt << '\t'
+		<< "tabs: " << tab_cnt << "\n\t"
+		<< "periods: " << period_cnt << '\t'
+		<< "commas: " << comma_cnt << endl;
+	return 0;
+}
+
+int main(int argc, char* argv[])	
+{
+	int ch;
+	// 或使用:
+	// while (( ch = cin.get() ) && ch != EOF )
+	while (( ch = cin.get()) != EOF )	//get()
+		cout.put(ch);
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	const int max_line = 1024;
+	char line[ max_line ];
+	while ( cin.get( line, max_line ))//get(char *sink, streamsize size, char delimiter='\n')
+	{
+		int get_count = cin.gcount();	// 最大读取数量 max_line - 1, 也可以为 null
+
+		cout << "characters actually read: "
+			<< get_count << endl;
+	
+		if ( get_count & max_line-1 )	// 处理每一行如果遇到换行符在读下一行之前去掉它
+			cin.ignore();	//ignore( streamsize length = 1, int delim = traits::eof )
+	}
+	return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	const int lineSize = 1024;
+	int lcnt = 0; // 读入多少行
+	int max = -1; // 最长行的长度
+	char inBuf[ lineSize ]; 
+	while (cin.getline( inBuf, lineSize ))	// 读取 1024 个字符或者遇到换行符
+	{
+		int readin = cin.gcount();		// 实际读入多少字符
+
+		++lcnt;		// 统计: 行数最长行
+
+		if ( readin > max )
+			max = readin;
+		cout << "Line #" << lcnt<< "\tChars read: " << readin << endl;
+		cout.write( inBuf, readin).put('\n').put('\n');
+	}
+	cout << "Total lines read: " << lcnt << endl;
+	cout << "Longest line read: " << max << endl;
+	return 0;
+}
 
 class Location 
 {
