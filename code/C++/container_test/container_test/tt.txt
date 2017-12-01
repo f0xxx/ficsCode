@@ -1,0 +1,12 @@
+The set orders the sequence it controls by calling a stored function object of type key_compare. This stored object
+ is a comparison function that may be accessed by calling the member function key_comp. In general, the elements 
+need to be merely less than comparable to establish this order so that, given any two elements, it may be 
+determined either that they are equivalent (in the sense that neither is less than the other) or that one is less 
+than the other. This results in an ordering between the nonequivalent elements. On a more technical note, the 
+comparison function is a binary predicate that induces a strict weak ordering in the standard mathematical sense. A
+ binary predicate f(x,y) is a function object that has two argument objects x and y and a return value of true or 
+false. An ordering imposed on a set is a strict weak ordering if the binary predicate is irreflexive, 
+antisymmetric, and transitive and if equivalence is transitive, where two objects x and y are defined to be 
+equivalent when both f(x,y) and f(y,x) are false. If the stronger condition of equality between keys replaces that
+ of equivalence, then the ordering becomes total (in the sense that all the elements are ordered with respect to 
+each other) and the keys matched will be indiscernible from each other.
