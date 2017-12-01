@@ -69,7 +69,7 @@ Handle& Handle::x(int x0)
 	//p->x(x0);
 	//return *this;
 
-	if(*u!=1)		//写时复制(copy on write)
+	if(*u!=1)		//写时复制(copy on write) 这里还需要处理引用计数u?
 	{
 		--*u;
 		p=new Point(*p);
